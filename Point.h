@@ -22,11 +22,17 @@ class Point
 
     bool check_if_a_point_lies_between_two_points(Point &A, Point &B)
     {
-        bool check_X = x < max(A.x, B.x) && x > min(A.x, B.x);
-        bool check_Y = y < max(A.y, B.y) && y > min(A.y, B.y);
+        bool check_X = x < max(A.x, B.x) + EPS && x + EPS > min(A.x, B.x);
+        bool check_Y = y < max(A.y, B.y) + EPS && y + EPS > min(A.y, B.y);
         bool check_point = check_X && check_Y;
         return check_point;
 
     }
+
+    bool operator == (Point &p)
+	{
+        bool value = abs(x - p.x) < EPS && abs(y - p.y) < EPS;
+		return value;
+	}
 };
 

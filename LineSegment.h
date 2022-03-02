@@ -45,7 +45,7 @@ class LineSegment
         return intersection;
     }
 
-    //todo- intersection with segment
+    //todo- intersection with segment and operator overload(?)
 
 
 };
