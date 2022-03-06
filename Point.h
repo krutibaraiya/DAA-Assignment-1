@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+const long double EPS = 1e-15;
 
 class Point
 {
