@@ -20,7 +20,7 @@ class Tree
 
     Tree()
     {
-        root = NULL;
+        this -> root = NULL;
         no_of_nodes = 0;
     }
 
@@ -152,36 +152,164 @@ class Tree
 
 	
 	Node<T*> extract_min() {
-		Node<T*> cur;
-			cur = root;
-		while(cur != NULL) {
-			if(cur -> left) {
-				cur = cur -> left;
+		Node<T*> current;
+			current = root;
+		while(current) {
+			if(current -> left) {
+				current = current -> left;
 			} else {
-				return cur;
+				return current;
 			}
 		}
 		return NULL;
 	}
 	Node<T*> extract_max() {
-		Node<T*> cur;
-		cur = root;
-		while(root != NULL) {
-			if(cur -> right) {
-				cur = cur -> right;
+		Node<T*> current;
+		current = root;
+		while(current) {
+			if(current -> right) {
+				current = current -> right;
 			} else {
-				return cur;
+				return current;
 			}
 		}
 		return NULL;
 	}
 	
-	Node<T*> left_neighbour(T data) {
+	T * left_neighbour(T data) {
+		T* left = NULL;
+		Node<T> *current = root;
+		while(current) {
+			if(current-> data == data) {
+				break;
+			}
 
+			if(current -> data < data) {
+				
+				left = &current -> data;
+				current = current -> right;
+			} else {
+				current = current -> left;
+			}
+		}
+
+		if(current) //find rightmost node in left subtree
+		{
+			current = current -> left;
+			while(current)
+			{
+				left = &current -> data;
+				current = current -> right;
+			}
+		}
+		return left;
 	}
 
-	Node<T*> right_neighbour(T data) {
+	T * right_neighbour(T data) {
+		T* right = NULL;
+		Node<T> *current = root;
+		vector < Node <T> ** > path;
+		while(current) {
+			if(current-> data == data) {
+				break;
+			}
 
+			if(current -> data < data) {
+				current = current -> right;
+			} else {
+				right = &current -> data;
+				current = current -> left;
+			}
+		}
+
+		if(current) //find rightmost node in left subtree
+		{
+			current = current -> right;
+			while(current) {
+				right = &current -> data;
+				current = current -> left;
+			}
+		}
+		return right;
+	}
+
+	T* lowerBound(T data) {
+		Node <T*> current = root;
+		T* node = NULL;
+
+		while(current) {
+			if(current -> data < data) {
+				current = current -> right;
+			} else {
+				node = &current -> data;
+				current = current -> left;
+			}
+		}
+
+		return node;
+	}
+
+	T* upperBound(T data) {
+		Node <T> ** current = &root;
+		T* node = NULL;
+
+		while(*current) {
+			if((*current) -> data > data) {
+				node = &(*current) -> data;
+				current = &(*current) -> left;
+			} else {
+				current = &(*current) -> right;
+			}
+		}
+		return node;
+	}
+
+	void deleteUpperBound(T data) {
+		// Node <T> ** current = &root;
+		// vector< Node <T> ** > path;
+		// int size;
+
+		// while(*node) {
+		// 	path.emplace_back(current);
+
+		// 	if((*current) -> data > data) {
+		// 		size = path.size();
+		// 		current = &(*current) -> left;
+		// 	} else {
+		// 		current = & (*current) -> right;
+		// 	}
+		// }
+
+		// if(size == 0) {
+		// 	cout << "No node to delete" << endl;
+		// }
+		// path.resize(size);
+		// current = path[size - 1];
+
+		Node <T*> node = upperBound(T data);
+		int value = node -> data;
+
+		delete_node(value); 
+
+		return;
+	}
+
+	bool search(T data) {
+		Node<T> *current = root;
+		while(current)
+		{
+			if(current -> data == data)
+				return true;
+			if(current -> data < data)
+			{
+				current = current -> right;
+			}
+			else
+			{
+				current = current -> left;
+			}
+		}
+		return 0;
 	}
 
 
