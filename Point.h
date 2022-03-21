@@ -11,8 +11,8 @@ class Point
     public:
     Point()
     {
-        x = 0;
-        y = 0;
+        x = INT_MIN;
+        y = INT_MAX;
     }
 
     Point(long double x_coord, long double y_coord)

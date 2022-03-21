@@ -2,46 +2,39 @@
 using namespace std;
 
 template<class T>
-class Node
-{
+class Node {
     public:
     Node *left;
     Node *right;
     T data;
-    int height;
-    int cnt;
+    int height; // Height of that subtree
+    int cnt; // Number of nodes in that subtree
 
-    Node(T data)
-    {       
+    Node(T data) {       
         left = NULL;
         right = NULL;
         height = 1;
-        data = data;
+        this -> data = data;
         cnt = 1;
     }
 
-    void modify_height_and_cnt()
-    {
+    void modify_height_and_cnt() {
         int l, c_l;
-        if(left != NULL)
-        {
-             l = left -> height;
-             c_l = left -> cnt;
+        if(left != NULL) {
+            l = left -> height;
+            c_l = left -> cnt;
         }
-        else
-        {
-             l = 0;
-             c_l = 0;
+        else {
+            l = 0;
+            c_l = 0;
         }
     
         int r, c_r;
-        if(right != NULL)
-        {
+        if(right != NULL) {
             r = right -> height;
             c_r = right -> cnt;
         }
-        else
-        {
+        else {
             r = 0;
             c_r = 0;
         }
@@ -50,8 +43,7 @@ class Node
         cnt = c_l + c_r + 1;
     }
 
-    int height_difference_of_left_and_right_subtree()
-    {
+    int height_difference_of_left_and_right_subtree() {
         int balance_factor, h_l, h_r;
 
         if(left != NULL)
@@ -69,8 +61,7 @@ class Node
         return balance_factor;
     }
 
-    Node * left_rotate()
-	{
+    Node * left_rotate() {
 		Node * R = right;
 		right = right -> left;
 		R -> left = this;
@@ -79,8 +70,7 @@ class Node
 		return R;
 	}
 
-    Node * right_rotate()
-	{
+    Node * right_rotate() {
 		Node * L = left;
 		left = left -> right;
 		L -> right = this;

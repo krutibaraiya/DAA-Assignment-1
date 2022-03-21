@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include<Node.h>
+#include "Node.h"
 
 template<class T>
 class Tree
@@ -147,6 +147,41 @@ class Tree
 		}
 		balance(path);
 		no_of_nodes--;
+	}
+
+
+	
+	Node<T*> extract_min() {
+		Node<T*> cur;
+			cur = root;
+		while(cur != NULL) {
+			if(cur -> left) {
+				cur = cur -> left;
+			} else {
+				return cur;
+			}
+		}
+		return NULL;
+	}
+	Node<T*> extract_max() {
+		Node<T*> cur;
+		cur = root;
+		while(root != NULL) {
+			if(cur -> right) {
+				cur = cur -> right;
+			} else {
+				return cur;
+			}
+		}
+		return NULL;
+	}
+	
+	Node<T*> left_neighbour(T data) {
+
+	}
+
+	Node<T*> right_neighbour(T data) {
+
 	}
 
 
