@@ -9,6 +9,13 @@ class Event
 {
     public:
     Point P;
+	/**
+	 * 0 = horizontal line segment start
+	 * 1 = horizontal line segment end
+	 * 2 = line segment start
+	 * 3 = line segment end
+	 * 4 = intersection point
+	 */
     int event_type;
     int event_index;
 

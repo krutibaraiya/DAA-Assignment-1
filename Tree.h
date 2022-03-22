@@ -151,26 +151,25 @@ class Tree
 
 
 	
-	Node<T*> extract_min() {
-		Node<T*> current;
-			current = root;
+	T* extract_min() {
+		Node<T> *current = root;
 		while(current) {
 			if(current -> left) {
 				current = current -> left;
 			} else {
-				return current;
+				return &current->data;
 			}
 		}
 		return NULL;
 	}
-	Node<T*> extract_max() {
+	T* extract_max() {
 		Node<T*> current;
 		current = root;
 		while(current) {
 			if(current -> right) {
 				current = current -> right;
 			} else {
-				return current;
+				return current -> data;
 			}
 		}
 		return NULL;
@@ -286,7 +285,7 @@ class Tree
 		// path.resize(size);
 		// current = path[size - 1];
 
-		Node <T*> node = upperBound(T data);
+		Node <T*> node = upperBound(data);
 		int value = node -> data;
 
 		delete_node(value); 

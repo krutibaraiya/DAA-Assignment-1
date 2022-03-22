@@ -17,6 +17,9 @@ class LineSegment
         index = -1;
     }
 
+    LineSegment(long double sl) {
+        this -> sweep_line = sl;
+    }
     LineSegment(const LineSegment &L)
     {
         A = L.A;

@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#include "Event.h"
-#include "Tree.h"
 #include "Bentley-Ottmann.h"
 
 using namespace std;
@@ -25,13 +23,21 @@ int32_t main() {
         Point A = Point(x1, y1);
         Point B = Point(x2, y2);
 
-        LineSegment ls = LineSegment(A, B);
+        if(abs(A.y - B.y) > EPS) {
+            if(A.y < B.y) {
+                swap(A,B);
+            } 
+        } else {
+            if(A.x > B.x) {
+                swap(A,B);
+            }
+        }
+        LineSegment ls = LineSegment(A, B, i);
         lineSegments.push_back(ls);
     } 
 
-    BentleyOttmann bo;
+    BentleyOttmann bo(lineSegments);
 
-    bo.bentleyOttmann(lineSegments);
     
     
 
