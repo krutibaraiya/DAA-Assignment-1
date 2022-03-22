@@ -2,7 +2,6 @@
 #include "Point.h"
 using namespace std;
 
-//const long double EPS = 1e-15;
 
 class LineSegment
 {
@@ -14,7 +13,7 @@ class LineSegment
 
     LineSegment()
     {
-        index = -1;
+        this -> index = -1;
     }
 
     LineSegment(long double sl) {

@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
-#include "LineSegment.h"
+#include "Output.h"
+
 using namespace std;
 
 //EPS required for comparing events or not??

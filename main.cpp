@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include "Bentley-Ottmann.h"
 
+
 using namespace std;
 
 
@@ -38,6 +39,10 @@ int32_t main() {
 
     BentleyOttmann bo(lineSegments);
 
+    vector <Output> finalOuptut = bo.output;
+    for(auto i: finalOuptut) {
+        i.print();
+    }
     
     
 

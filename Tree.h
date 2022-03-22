@@ -1,5 +1,7 @@
 #include<bits/stdc++.h>
 #include "Node.h"
+#include "Event.h"
+
 
 template<class T>
 class Tree
@@ -84,7 +86,7 @@ class Tree
 	{
 		Node<T> ** node = &root;
 		vector< Node<T> ** > path;
-		while(*node != NULL and (*node) -> data != data)
+		while((*node) != NULL && (*node) -> data != data)
 		{
 			path.push_back(node);
 	
@@ -285,10 +287,12 @@ class Tree
 		// path.resize(size);
 		// current = path[size - 1];
 
-		Node <T*> node = upperBound(data);
-		int value = node -> data;
+		// T* node = upperBound(data);
+		// T value = node -> data;
 
-		delete_node(value); 
+		// delete_node(value); 
+
+		delete_node(&upperBound(data)->data);
 
 		return;
 	}

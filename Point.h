@@ -5,6 +5,7 @@ const long double EPS = 1e-15;
 class Point
 {
     public:
+
     long double x;
     long double y;
 

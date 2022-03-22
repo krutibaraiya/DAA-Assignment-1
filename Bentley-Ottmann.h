@@ -1,5 +1,4 @@
 #include "Tree.h"
-#include "Event.h"
 #define INF 1e9
 // use template classes (todo)
 
@@ -15,6 +14,7 @@ class BentleyOttmann {
     vector < pair < long double, long double > > output_intersections;
     Tree <Event> eventQueue;
     Tree <LineSegment> statusQueue;
+    vector <Output> output;
 
     BentleyOttmann() {
 
@@ -29,18 +29,96 @@ class BentleyOttmann {
         return eventQueue.no_of_nodes == 0;
     }
     void findIntersectionsWithHorizontalSegment() {
-
+        LineSegment ls = LineSegment(*horizontal);
+        ls.index = -INF;
+        LineSegment *intersectionPoint;
+        while(intersectionPoint = statusQueue.right_neighbour(ls)) {
+            long double xIntersection = intersectionPoint -> intersection_of_sweep_line_with_linesegment();
+            if(xIntersection < horizontal -> B.x - EPS) {
+                concurrentLineSegments.emplace_back(*intersectionPoint);
+                printIntersectionPoint(xIntersection, ls.sweep_line);
+                concurrentLineSegments.clear();
+                ls.A.x = intersectionPoint -> A.x;
+                ls.B.x = intersectionPoint -> B.x;
+                ls.A.y = intersectionPoint -> A.y;
+                ls.B.y = intersectionPoint -> B.y;
+            } else {
+                break;
+            }
+        }
 
         return;
     }
-    void insertIntoStatusQueue(LineSegment &ls) {
+    int findIntersectionPoint(Point p) {
+        p.x = p.x + EPS;
+        Event event = Event(p, INF, 4);
+        p.x = p.x - EPS;
 
+        Event *intersection;
+        intersection = eventQueue.left_neighbour(event);
+        if(intersection) {
+            if(abs(p.x - intersection -> P.x) < EPS && abs(p.y - intersection -> P.y) < EPS && intersection -> event_type == 4) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+    void insertIntoStatusQueue(LineSegment &ls) {
+        LineSegment ls1 = LineSegment(ls);
+        //ls1.index = 5;
+        ls1.index = -INF;
+        LineSegment *leftNeighbour = statusQueue.left_neighbour(ls1);
+        LineSegment *rightNeighbour = statusQueue.right_neighbour(ls1);
+
+        pair <bool, Point> intersectionPoint;
+        if(leftNeighbour) {
+            intersectionPoint = ls.intersection_with_linesegment(*leftNeighbour);
+            if(intersectionPoint.first && intersectionPoint.second.y < ls.sweep_line - EPS && findIntersectionPoint(intersectionPoint.second) == 0) {
+                eventQueue.insert_node(Event(intersectionPoint.second, INF, 4));
+            }
+        }
+        if(rightNeighbour) {
+            intersectionPoint = ls.intersection_with_linesegment(*rightNeighbour);
+            if(intersectionPoint.first && intersectionPoint.second.y < ls.sweep_line - EPS && findIntersectionPoint(intersectionPoint.second) == 0) {
+                eventQueue.insert_node(Event(intersectionPoint.second, INF, 4));
+            }
+        }
+        statusQueue.insert_node(ls);
+
+        return;
     }
     void getNewEvent(Point p, LineSegment &sl) {
+        
+        sl.A.x = p.x - 0.05;
+        sl.A.y = p.y + 0.05;
+        sl.B.x = p.x + 0.05;
+        sl.B.y = p.y - 0.05;
+
+        LineSegment* leftNeighbour = statusQueue.left_neighbour(sl);
+        LineSegment* rightNeighbour = statusQueue.right_neighbour(sl);
+
+        pair <bool, Point> intersectionPoint;
+
+        if(leftNeighbour && rightNeighbour) {
+            intersectionPoint = leftNeighbour -> intersection_with_linesegment(*rightNeighbour);
+            if(intersectionPoint.first && intersectionPoint.second.y < sl.sweep_line - EPS && findIntersectionPoint(intersectionPoint.second) == 0) {
+                eventQueue.insert_node(Event(intersectionPoint.second, INF, 4)); 
+            }
+        }
 
     }
     void printIntersectionPoint(long double x, long double y) {
-
+        Point p(x,y);
+        vector <LineSegment> ls(concurrentLineSegments.begin(), concurrentLineSegments.end());
+        if(horizontal) {
+            ls.emplace_back(*horizontal);
+        }
+        if(secondHorizontal) {
+            ls.emplace_back(*secondHorizontal);
+        }
+        Output out(p, ls);
+        output.emplace_back(out);
+        
         return;
     }
     void insertNewEvents(LineSegment &sl) {
