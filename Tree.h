@@ -262,74 +262,71 @@ class Tree
 	}
 
 	void deleteUpperBound(T data) {
-		Node <T> ** current = &root;
-		vector< Node <T> ** > path;
-		int size;
+		// Node <T> ** current = &root;
+		// vector< Node <T> ** > path;
+		// int size;
 
-		while(*current) {
-			path.push_back(current);
+		// while(*current) {
+		// 	path.push_back(current);
 
-			if((*current) -> data > data) {
-				size = path.size();
-				current = &(*current) -> left;
-			} else {
-				current = & (*current) -> right;
-			}
-		}
+		// 	if((*current) -> data > data) {
+		// 		size = path.size();
+		// 		current = &(*current) -> left;
+		// 	} else {
+		// 		current = & (*current) -> right;
+		// 	}
+		// }
 
-		if(size == 0) {
-			cout << "No node to delete" << endl;
-		}
-		path.resize(size);
-		current = path[size - 1];
-
-		if(*current) {
-			cout << "value not found in upper bound and delete" << endl;
-			cout << data.index << endl;
-			assert(1 == 2);
-			return ;
-		}
-		int pathsize = path.size();
-		if((*current) -> left == NULL && (*current) -> right == NULL) {
-			delete *current;
-			*current = NULL;
-			path.pop_back();
-		} else if((*current) -> right == NULL) {
-			Node <T> *toRemove = *current;
-			*current = (*current) -> left;
-			delete toRemove;
-			path.pop_back();
-		} else {
-			Node <T> **successor = &((*current) -> right);
-			while((*successor) -> left) {
-				path.push_back(successor);
-				successor = &(*successor) -> left;
-			}
-			if(*successor == (*current) -> right) {
-				(*successor) -> left = (*current) -> left;
-				Node <T> *toRemove = *current;
-				*current = *successor;
-				delete toRemove;
-			} else {
-				Node <T> *temp = *path.back(), *suc = *successor;
-				temp -> left = (*successor) -> right;
-				suc -> left = (*current) -> left;
-				suc -> right = (*current) -> right;
-				delete *current;
-				*current = suc;
-				path[pathsize] = &(suc -> right);
-			}
-		}
-		balance(path);
-		no_of_nodes--;
-
-		// T* node = upperBound(data);
-		// if(node == NULL) {
+		
+		// path.resize(size);
+		// current = path[size - 1];
+		// if(*current == NULL) {
+		// 	cout << "value not found in upper bound and delete" << endl;
+		// 	cout << data.index << endl;
+		// 	assert(1 == 2);
 		// 	return ;
 		// }
-		// T value = (*node);
+		// int pathsize = path.size();
+		// if((*current) -> left == NULL && (*current) -> right == NULL) {
+		// 	delete *current;
+		// 	*current = NULL;
+		// 	path.pop_back();
+		// } else if((*current) -> right == NULL) {
+		// 	Node <T> *toRemove = *current;
+		// 	*current = (*current) -> left;
+		// 	delete toRemove;
+		// 	path.pop_back();
+		// } else {
+		// 	Node <T> **successor = &((*current) -> right);
+		// 	while((*successor) -> left) {
+		// 		path.push_back(successor);
+		// 		successor = &(*successor) -> left;
+		// 	}
+		// 	if(*successor == (*current) -> right) {
+		// 		(*successor) -> left = (*current) -> left;
+		// 		Node <T> *toRemove = *current;
+		// 		*current = *successor;
+		// 		delete toRemove;
+		// 	} else {
+		// 		Node <T> *temp = *path.back(), *suc = *successor;
+		// 		temp -> left = (*successor) -> right;
+		// 		suc -> left = (*current) -> left;
+		// 		suc -> right = (*current) -> right;
+		// 		delete *current;
+		// 		*current = suc;
+		// 		path[pathsize] = &(suc -> right);
+		// 	}
+		// }
+		// balance(path);
+		// no_of_nodes--;
 
-		// delete_node(value); 
+		T* node = upperBound(data);
+		if(node == NULL) {
+			return ;
+		}
+		T value = (*node);
+
+		delete_node(value); 
 
 		//delete_node(&upperBound(data)->data);
 
@@ -368,8 +365,8 @@ class Tree
 		    else if (state == 2)  // right
 		        printf("└───");
 		    
-		    cout << "[" << cur->data.A.x << " " << cur->data.A.y << " " << cur->data.B.x << " " << cur->data.B.y << "] - (" << cur->cnt << ", "  << cur -> height << ")" << endl;
-			// cout << "[" << cur->data.P.x << " " << cur->data.P.y << "] - (" << cur->cnt << ", "  << cur -> height << ")" << endl;
+		    // cout << "[" << cur->data.A.x << " " << cur->data.A.y << " " << cur->data.B.x << " " << cur->data.B.y << "] - (" << cur->cnt << ", "  << cur -> height << ")" << endl;
+			cout << "[" << cur->data.P.x << " " << cur->data.P.y << "] - (" << cur->cnt << ", "  << cur -> height << ")" << endl;
 		    
 		    if (cur->right)
 		display(cur->right, depth + 1, 2);

@@ -39,11 +39,8 @@ int32_t main() {
 
     BentleyOttmann bo(lineSegments);
     bo.bentleyOttmann();
-    cout << "after bentley" << endl;
     vector <Output> finalOutput = bo.output;
-    cout << finalOutput.size() << endl;
     for(auto i: finalOutput) {
-        cout << "hello" << endl;
         i.print();
     }
     

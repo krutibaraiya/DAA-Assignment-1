@@ -8,7 +8,7 @@ class LineSegment
     public:
     Point A;
     Point B;
-    long double sweep_line;   //sweep-line status
+    static long double sweep_line;   //sweep-line status
     int index;
 
     LineSegment()
@@ -44,6 +44,7 @@ class LineSegment
         long double slope = (B.y - A.y)/(B.x - A.x);
 
         long double intersection = (sweep_line - (A.y - slope * A.x))/slope; 
+        // cout << A.x << " " << B.x << " " << sweep_line << endl;
         return intersection;
     }
 
@@ -51,18 +52,18 @@ class LineSegment
     bool operator < (LineSegment &ls) {
         long double x1 = intersection_of_sweep_line_with_linesegment();
         long double x2 = ls.intersection_of_sweep_line_with_linesegment();
-
-        // bool check = (x1 < x2 + EPS);
-        bool check = (x1 + EPS > x2);
+        // cout << "x1: " << x1 << " x2: " << endl;
+        bool check = (x1 < x2 + EPS);
+        //bool check = (x1 + EPS > x2);
         return check;
     }
 
     bool operator > (LineSegment &ls) {
         long double x1 = intersection_of_sweep_line_with_linesegment();
         long double x2 = ls.intersection_of_sweep_line_with_linesegment();
-
-        // bool check = (x1 + EPS > x2);
-        bool check = (x1 < x2 + EPS);
+        // cout << "x1: " << x1 << " x2: " << endl;
+        bool check = (x1 + EPS > x2);
+        //bool check = (x1 < x2 + EPS);
         return check;
     }
 
@@ -110,8 +111,9 @@ class LineSegment
             } else {
                 b = -x * a - z;
             }
-
-            Point intersection = Point(x,y);
+            // cout << "a: " << a << "b: " << b << "x: " << x << "y: " << y << "z: " << z << "x1: " << x1 << "y1: " << y1 << "z1: " << z1 << endl;
+            Point intersection = Point(a,b);
+            // cout << intersection.x << " " << intersection.y << "intersection" << endl;
             if(intersection.check_if_a_point_lies_between_two_points(A,B) && intersection.check_if_a_point_lies_between_two_points(ls.A, ls.B)) {
                 return make_pair(1, intersection);
             } else {
