@@ -36,16 +36,13 @@ class Tree
 
 			if((*node) -> height_difference_of_left_and_right_subtree() >= 2 && (*node) -> left -> height_difference_of_left_and_right_subtree() >= 0)
 				(*node) = (*node) -> right_rotate();
-
 			else if((*node)->height_difference_of_left_and_right_subtree() <= -2 and (*node)->right->height_difference_of_left_and_right_subtree() <= 0)
 				(*node) = (*node) -> left_rotate();
-
 			else if((*node)->height_difference_of_left_and_right_subtree() >= 2)
 			{
 				(*node)->left = (*node) -> left->left_rotate();
 				(*node) = (*node) -> right_rotate();
 			}
-
 			else if ((*node)->height_difference_of_left_and_right_subtree() <= -2)
 			{
 				(*node) -> right = (*node) -> right -> right_rotate();
@@ -73,7 +70,6 @@ class Tree
             }
 		}	
 		*node = new Node<T>(data);
-
 		path.push_back(node);
 
 		balance(path);
@@ -266,33 +262,76 @@ class Tree
 	}
 
 	void deleteUpperBound(T data) {
-		// Node <T> ** current = &root;
-		// vector< Node <T> ** > path;
-		// int size;
+		Node <T> ** current = &root;
+		vector< Node <T> ** > path;
+		int size;
 
-		// while(*node) {
-		// 	path.emplace_back(current);
+		while(*current) {
+			path.push_back(current);
 
-		// 	if((*current) -> data > data) {
-		// 		size = path.size();
-		// 		current = &(*current) -> left;
-		// 	} else {
-		// 		current = & (*current) -> right;
-		// 	}
-		// }
+			if((*current) -> data > data) {
+				size = path.size();
+				current = &(*current) -> left;
+			} else {
+				current = & (*current) -> right;
+			}
+		}
 
-		// if(size == 0) {
-		// 	cout << "No node to delete" << endl;
-		// }
-		// path.resize(size);
-		// current = path[size - 1];
+		if(size == 0) {
+			cout << "No node to delete" << endl;
+		}
+		path.resize(size);
+		current = path[size - 1];
+
+		if(*current) {
+			cout << "value not found in upper bound and delete" << endl;
+			cout << data.index << endl;
+			assert(1 == 2);
+			return ;
+		}
+		int pathsize = path.size();
+		if((*current) -> left == NULL && (*current) -> right == NULL) {
+			delete *current;
+			*current = NULL;
+			path.pop_back();
+		} else if((*current) -> right == NULL) {
+			Node <T> *toRemove = *current;
+			*current = (*current) -> left;
+			delete toRemove;
+			path.pop_back();
+		} else {
+			Node <T> **successor = &((*current) -> right);
+			while((*successor) -> left) {
+				path.push_back(successor);
+				successor = &(*successor) -> left;
+			}
+			if(*successor == (*current) -> right) {
+				(*successor) -> left = (*current) -> left;
+				Node <T> *toRemove = *current;
+				*current = *successor;
+				delete toRemove;
+			} else {
+				Node <T> *temp = *path.back(), *suc = *successor;
+				temp -> left = (*successor) -> right;
+				suc -> left = (*current) -> left;
+				suc -> right = (*current) -> right;
+				delete *current;
+				*current = suc;
+				path[pathsize] = &(suc -> right);
+			}
+		}
+		balance(path);
+		no_of_nodes--;
 
 		// T* node = upperBound(data);
-		// T value = node -> data;
+		// if(node == NULL) {
+		// 	return ;
+		// }
+		// T value = (*node);
 
 		// delete_node(value); 
 
-		delete_node(&upperBound(data)->data);
+		//delete_node(&upperBound(data)->data);
 
 		return;
 	}
@@ -314,6 +353,37 @@ class Tree
 		}
 		return 0;
 	}
+
+
+	void display(Node<T> *cur,int depth = 0,int state = 0)
+	{
+		if (cur->left)
+		    display(cur->left, depth + 1, 1);
+		    
+		    for (int i=0; i < depth; i++)
+		        printf("     ");
+		    
+		    if (state == 1) // left
+		        printf("┌───");
+		    else if (state == 2)  // right
+		        printf("└───");
+		    
+		    cout << "[" << cur->data.A.x << " " << cur->data.A.y << " " << cur->data.B.x << " " << cur->data.B.y << "] - (" << cur->cnt << ", "  << cur -> height << ")" << endl;
+			// cout << "[" << cur->data.P.x << " " << cur->data.P.y << "] - (" << cur->cnt << ", "  << cur -> height << ")" << endl;
+		    
+		    if (cur->right)
+		display(cur->right, depth + 1, 2);
+	}
+
+	void display()
+	{
+		cout << endl;
+		if(root != NULL)
+			display(root);
+		else
+			cout << "Empty" << endl;
+
+	} 	
 
 
 };

@@ -15,6 +15,7 @@ class Output {
     }
 
     void print() {
+        //freopen("output.txt", "w", stdout);
         cout << fixed << setprecision(6);
         cout <<  "Intersection Point: " << p.x << " " << p.y << endl;
         for(auto l: ls) {

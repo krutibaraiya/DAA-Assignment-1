@@ -34,11 +34,11 @@ class LineSegment
     }
 
     long double intersection_of_sweep_line_with_linesegment()
-    {
-        if(abs(A.y - B.y) < EPS)   //horizontal
-            return A.x;
-        
+    {   
         if(abs(A.x - B.x) < EPS)  //vertical 
+            return A.x;
+
+        if(abs(A.y - B.y) < EPS)   //horizontal
             return A.x;
         
         long double slope = (B.y - A.y)/(B.x - A.x);
@@ -50,23 +50,26 @@ class LineSegment
     //todo- intersection with segment and operator overload(?)
     bool operator < (LineSegment &ls) {
         long double x1 = intersection_of_sweep_line_with_linesegment();
-        long double x2 = intersection_of_sweep_line_with_linesegment();
+        long double x2 = ls.intersection_of_sweep_line_with_linesegment();
 
-        bool check = (x1 < x2 + EPS);
-
+        // bool check = (x1 < x2 + EPS);
+        bool check = (x1 + EPS > x2);
         return check;
     }
 
     bool operator > (LineSegment &ls) {
         long double x1 = intersection_of_sweep_line_with_linesegment();
-        long double x2 = intersection_of_sweep_line_with_linesegment();
+        long double x2 = ls.intersection_of_sweep_line_with_linesegment();
 
-        bool check = (x1 + EPS > x2);
-
+        // bool check = (x1 + EPS > x2);
+        bool check = (x1 < x2 + EPS);
         return check;
     }
 
     bool operator == (LineSegment &ls) {
+        return (A == ls.A && B == ls.B);
+    }
+    bool operator != (LineSegment &ls) {
         return !(A == ls.A && B == ls.B);
     }
 

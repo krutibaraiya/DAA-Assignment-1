@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-const long double EPS = 1e-15;
+const long double EPS = 0.00000000000002;
 
 class Point
 {
@@ -12,8 +12,8 @@ class Point
     public:
     Point()
     {
-        x = INT_MIN;
-        y = INT_MAX;
+        x = 0;
+        y = 0;
     }
 
     Point(long double x_coord, long double y_coord)

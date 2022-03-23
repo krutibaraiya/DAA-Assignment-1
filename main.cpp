@@ -7,10 +7,10 @@ using namespace std;
 
 int32_t main() {
 
-    #ifndef ONLINE_JUDGE
+    
         freopen("input.txt", "r", stdin);
         freopen("output.txt", "w", stdout);
-    #endif
+    
 
     int n;
     cin >> n;
@@ -38,9 +38,12 @@ int32_t main() {
     } 
 
     BentleyOttmann bo(lineSegments);
-
-    vector <Output> finalOuptut = bo.output;
-    for(auto i: finalOuptut) {
+    bo.bentleyOttmann();
+    cout << "after bentley" << endl;
+    vector <Output> finalOutput = bo.output;
+    cout << finalOutput.size() << endl;
+    for(auto i: finalOutput) {
+        cout << "hello" << endl;
         i.print();
     }
     
