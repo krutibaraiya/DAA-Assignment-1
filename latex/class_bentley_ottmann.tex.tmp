@@ -1,0 +1,318 @@
+\hypertarget{class_bentley_ottmann}{}\doxysection{Bentley\+Ottmann Class Reference}
+\label{class_bentley_ottmann}\index{BentleyOttmann@{BentleyOttmann}}
+
+
+sweep\+\_\+line status  
+
+
+
+
+{\ttfamily \#include $<$Bentley-\/\+Ottmann.\+h$>$}
+
+
+
+Collaboration diagram for Bentley\+Ottmann\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_bentley_ottmann_a3513e1a591ae056aeaf93a4f1c434071}{Bentley\+Ottmann}} ()
+\begin{DoxyCompactList}\small\item\em vector to store the output \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_bentley_ottmann_a0387051db7ca0519f938f22d28dbcf66}{Bentley\+Ottmann}} (vector$<$ \mbox{\hyperlink{class_line_segment}{Line\+Segment}} $>$ line\+Segments)
+\begin{DoxyCompactList}\small\item\em Construct a new Bentley Ottmann object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_bentley_ottmann_afc5ac29f04fad50f9ca36358d8acb693}{is\+Empty}} (\mbox{\hyperlink{class_tree}{Tree}}$<$ \mbox{\hyperlink{class_event}{Event}} $>$)
+\begin{DoxyCompactList}\small\item\em method to check if tree is empty or not \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bentley_ottmann_af94a40610381d41a684cf0e23ca182af}{find\+Intersections\+With\+Horizontal\+Segment}} ()
+\begin{DoxyCompactList}\small\item\em method to find the intersection points with the horizontal line segment \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_bentley_ottmann_ab09bc3c05531d2f6d94257ac4bc8b700}{find\+Intersection\+Point}} (\mbox{\hyperlink{class_point}{Point}} p)
+\begin{DoxyCompactList}\small\item\em method to find intersection point \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bentley_ottmann_ad0e0d05531d69539854f9f55b44f21e1}{insert\+Into\+Status\+Queue}} (\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&ls)
+\begin{DoxyCompactList}\small\item\em method to insert new line segment in status tree \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bentley_ottmann_a792eb65cf4fee596e0dc9826752cf9a6}{get\+New\+Event}} (\mbox{\hyperlink{class_point}{Point}} p, \mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&sl)
+\begin{DoxyCompactList}\small\item\em Get the New \mbox{\hyperlink{class_event}{Event}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bentley_ottmann_a60418f4e81761f03a281396d3ff04fbc}{print\+Intersection\+Point}} (long double x, long double y)
+\begin{DoxyCompactList}\small\item\em method to print intersection point \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bentley_ottmann_a0be41ec18ca8db60e2591ce05de1e3d2}{insert\+New\+Events}} (\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&sl)
+\begin{DoxyCompactList}\small\item\em method to insert new events in the event\+Queue \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bentley_ottmann_a83593c34c2f21e01620832b0b29e32db}{reinsert\+Line\+Segments}} ()
+\begin{DoxyCompactList}\small\item\em method to re insert line segments in status tree \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bentley_ottmann_a1fca51e4a4b7078a6ec384d334d77885}{remove\+Duplicate\+Event\+Points}} (\mbox{\hyperlink{class_event}{Event}} event)
+\begin{DoxyCompactList}\small\item\em method to remove duplicate event points \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bentley_ottmann_a0d6e0ca2c6143e327cf0bb3ea209a6f3}{make\+Query\+Node}} (long double x, \mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&sl)
+\begin{DoxyCompactList}\small\item\em generating a query node for sweep line to find intersection \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bentley_ottmann_a1e755081a1e65cd309035d04add681a1}{get\+All\+Line\+Segments\+Passing\+Through\+This\+Event\+Point}} (long double x, \mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&sl)
+\begin{DoxyCompactList}\small\item\em Get all Line Segments Passing Through This \mbox{\hyperlink{class_event}{Event}} \mbox{\hyperlink{class_point}{Point}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bentley_ottmann_a80bcbcb0e6e61f7a57dcedae77e99052}{process\+All\+Segments\+At\+This\+Event\+Point}} (long double x, long double y)
+\begin{DoxyCompactList}\small\item\em method to process all the line segments at this event point \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bentley_ottmann_a8f9f4295d884e571a1b92094290e8971}{bentley\+Ottmann}} ()
+\begin{DoxyCompactList}\small\item\em main algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bentley_ottmann_a60633081480612ac1fed4639adda031e}\label{class_bentley_ottmann_a60633081480612ac1fed4639adda031e}} 
+vector$<$ \mbox{\hyperlink{class_line_segment}{Line\+Segment}} $>$ {\bfseries line\+Segments}
+\item 
+\mbox{\Hypertarget{class_bentley_ottmann_a5b619e595c5988e6d392019f67c9079e}\label{class_bentley_ottmann_a5b619e595c5988e6d392019f67c9079e}} 
+vector$<$ \mbox{\hyperlink{class_line_segment}{Line\+Segment}} $>$ {\bfseries reinsert\+LS}
+\item 
+\mbox{\Hypertarget{class_bentley_ottmann_a6c0ca16d59897d9cc09465c9bd499332}\label{class_bentley_ottmann_a6c0ca16d59897d9cc09465c9bd499332}} 
+vector$<$ \mbox{\hyperlink{class_line_segment}{Line\+Segment}} $>$ {\bfseries concurrent\+Line\+Segments}
+\item 
+\mbox{\Hypertarget{class_bentley_ottmann_a1974d19459311d37d72b07a0e6224a68}\label{class_bentley_ottmann_a1974d19459311d37d72b07a0e6224a68}} 
+vector$<$ \mbox{\hyperlink{class_point}{Point}} $>$ \mbox{\hyperlink{class_bentley_ottmann_a1974d19459311d37d72b07a0e6224a68}{neighbours}}
+\begin{DoxyCompactList}\small\item\em vectors of line segment \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_bentley_ottmann_a98524d8f19fe168e9be0be15bdd444bf}\label{class_bentley_ottmann_a98524d8f19fe168e9be0be15bdd444bf}} 
+\mbox{\hyperlink{class_line_segment}{Line\+Segment}} $\ast$ \mbox{\hyperlink{class_bentley_ottmann_a98524d8f19fe168e9be0be15bdd444bf}{horizontal}}
+\begin{DoxyCompactList}\small\item\em vector to store points whose neighbours are to be checked for new events \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_bentley_ottmann_aab441f6cb3e86709a86bdbf3b989e064}\label{class_bentley_ottmann_aab441f6cb3e86709a86bdbf3b989e064}} 
+\mbox{\hyperlink{class_line_segment}{Line\+Segment}} $\ast$ \mbox{\hyperlink{class_bentley_ottmann_aab441f6cb3e86709a86bdbf3b989e064}{second\+Horizontal}}
+\begin{DoxyCompactList}\small\item\em pointer to the horizontal line segment \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_bentley_ottmann_af26e64d812ec6df45ef49dbbd2d111fe}\label{class_bentley_ottmann_af26e64d812ec6df45ef49dbbd2d111fe}} 
+\mbox{\hyperlink{class_tree}{Tree}}$<$ \mbox{\hyperlink{class_event}{Event}} $>$ \mbox{\hyperlink{class_bentley_ottmann_af26e64d812ec6df45ef49dbbd2d111fe}{event\+Queue}}
+\begin{DoxyCompactList}\small\item\em pointer to the next horizontal line segment \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_bentley_ottmann_a961292fd09397e1674f24501d33ac166}\label{class_bentley_ottmann_a961292fd09397e1674f24501d33ac166}} 
+\mbox{\hyperlink{class_tree}{Tree}}$<$ \mbox{\hyperlink{class_line_segment}{Line\+Segment}} $>$ \mbox{\hyperlink{class_bentley_ottmann_a961292fd09397e1674f24501d33ac166}{status\+Queue}}
+\begin{DoxyCompactList}\small\item\em A\+VL tree of \mbox{\hyperlink{class_event}{Event}} class -\/ \mbox{\hyperlink{class_event}{Event}} Queue data structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_bentley_ottmann_a7f71967e8d0824d31aae8c584e935d99}\label{class_bentley_ottmann_a7f71967e8d0824d31aae8c584e935d99}} 
+vector$<$ \mbox{\hyperlink{class_output}{Output}} $>$ \mbox{\hyperlink{class_bentley_ottmann_a7f71967e8d0824d31aae8c584e935d99}{output}}
+\begin{DoxyCompactList}\small\item\em A\+VL tree of Line -\/ Status data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+sweep\+\_\+line status 
+
+\mbox{\hyperlink{class_bentley_ottmann}{Bentley\+Ottmann}} class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_bentley_ottmann_a3513e1a591ae056aeaf93a4f1c434071}\label{class_bentley_ottmann_a3513e1a591ae056aeaf93a4f1c434071}} 
+\index{BentleyOttmann@{BentleyOttmann}!BentleyOttmann@{BentleyOttmann}}
+\index{BentleyOttmann@{BentleyOttmann}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{BentleyOttmann()}{BentleyOttmann()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Bentley\+Ottmann\+::\+Bentley\+Ottmann (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+vector to store the output 
+
+Construct a new Bentley Ottmann object \mbox{\Hypertarget{class_bentley_ottmann_a0387051db7ca0519f938f22d28dbcf66}\label{class_bentley_ottmann_a0387051db7ca0519f938f22d28dbcf66}} 
+\index{BentleyOttmann@{BentleyOttmann}!BentleyOttmann@{BentleyOttmann}}
+\index{BentleyOttmann@{BentleyOttmann}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{BentleyOttmann()}{BentleyOttmann()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Bentley\+Ottmann\+::\+Bentley\+Ottmann (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_line_segment}{Line\+Segment}} $>$}]{line\+Segments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Bentley Ottmann object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Segments} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bentley_ottmann_a8f9f4295d884e571a1b92094290e8971}\label{class_bentley_ottmann_a8f9f4295d884e571a1b92094290e8971}} 
+\index{BentleyOttmann@{BentleyOttmann}!bentleyOttmann@{bentleyOttmann}}
+\index{bentleyOttmann@{bentleyOttmann}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{bentleyOttmann()}{bentleyOttmann()}}
+{\footnotesize\ttfamily void Bentley\+Ottmann\+::bentley\+Ottmann (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+main algorithm 
+
+if line segment is horizontal\mbox{\Hypertarget{class_bentley_ottmann_ab09bc3c05531d2f6d94257ac4bc8b700}\label{class_bentley_ottmann_ab09bc3c05531d2f6d94257ac4bc8b700}} 
+\index{BentleyOttmann@{BentleyOttmann}!findIntersectionPoint@{findIntersectionPoint}}
+\index{findIntersectionPoint@{findIntersectionPoint}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{findIntersectionPoint()}{findIntersectionPoint()}}
+{\footnotesize\ttfamily int Bentley\+Ottmann\+::find\+Intersection\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_point}{Point}}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to find intersection point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & point p \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_bentley_ottmann_af94a40610381d41a684cf0e23ca182af}\label{class_bentley_ottmann_af94a40610381d41a684cf0e23ca182af}} 
+\index{BentleyOttmann@{BentleyOttmann}!findIntersectionsWithHorizontalSegment@{findIntersectionsWithHorizontalSegment}}
+\index{findIntersectionsWithHorizontalSegment@{findIntersectionsWithHorizontalSegment}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{findIntersectionsWithHorizontalSegment()}{findIntersectionsWithHorizontalSegment()}}
+{\footnotesize\ttfamily void Bentley\+Ottmann\+::find\+Intersections\+With\+Horizontal\+Segment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to find the intersection points with the horizontal line segment 
+
+finding the right neighbour in the status tree
+
+if the intersection point exists with the horizontal line segment
+
+printing the intersection point\mbox{\Hypertarget{class_bentley_ottmann_a1e755081a1e65cd309035d04add681a1}\label{class_bentley_ottmann_a1e755081a1e65cd309035d04add681a1}} 
+\index{BentleyOttmann@{BentleyOttmann}!getAllLineSegmentsPassingThroughThisEventPoint@{getAllLineSegmentsPassingThroughThisEventPoint}}
+\index{getAllLineSegmentsPassingThroughThisEventPoint@{getAllLineSegmentsPassingThroughThisEventPoint}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{getAllLineSegmentsPassingThroughThisEventPoint()}{getAllLineSegmentsPassingThroughThisEventPoint()}}
+{\footnotesize\ttfamily void Bentley\+Ottmann\+::get\+All\+Line\+Segments\+Passing\+Through\+This\+Event\+Point (\begin{DoxyParamCaption}\item[{long double}]{x,  }\item[{\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&}]{sl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get all Line Segments Passing Through This \mbox{\hyperlink{class_event}{Event}} \mbox{\hyperlink{class_point}{Point}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate of the event point \\
+\hline
+{\em sl} & sweep line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bentley_ottmann_a792eb65cf4fee596e0dc9826752cf9a6}\label{class_bentley_ottmann_a792eb65cf4fee596e0dc9826752cf9a6}} 
+\index{BentleyOttmann@{BentleyOttmann}!getNewEvent@{getNewEvent}}
+\index{getNewEvent@{getNewEvent}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{getNewEvent()}{getNewEvent()}}
+{\footnotesize\ttfamily void Bentley\+Ottmann\+::get\+New\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_point}{Point}}}]{p,  }\item[{\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&}]{sl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the New \mbox{\hyperlink{class_event}{Event}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & point of the event \\
+\hline
+{\em sl} & sweep line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bentley_ottmann_ad0e0d05531d69539854f9f55b44f21e1}\label{class_bentley_ottmann_ad0e0d05531d69539854f9f55b44f21e1}} 
+\index{BentleyOttmann@{BentleyOttmann}!insertIntoStatusQueue@{insertIntoStatusQueue}}
+\index{insertIntoStatusQueue@{insertIntoStatusQueue}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{insertIntoStatusQueue()}{insertIntoStatusQueue()}}
+{\footnotesize\ttfamily void Bentley\+Ottmann\+::insert\+Into\+Status\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&}]{ls }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to insert new line segment in status tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ls} & line segment to be inserted in the status tree \\
+\hline
+\end{DoxyParams}
+intersection point with the neighbours
+
+insert line segment into status tree\mbox{\Hypertarget{class_bentley_ottmann_a0be41ec18ca8db60e2591ce05de1e3d2}\label{class_bentley_ottmann_a0be41ec18ca8db60e2591ce05de1e3d2}} 
+\index{BentleyOttmann@{BentleyOttmann}!insertNewEvents@{insertNewEvents}}
+\index{insertNewEvents@{insertNewEvents}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{insertNewEvents()}{insertNewEvents()}}
+{\footnotesize\ttfamily void Bentley\+Ottmann\+::insert\+New\+Events (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&}]{sl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to insert new events in the event\+Queue 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sl} & sweep line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bentley_ottmann_afc5ac29f04fad50f9ca36358d8acb693}\label{class_bentley_ottmann_afc5ac29f04fad50f9ca36358d8acb693}} 
+\index{BentleyOttmann@{BentleyOttmann}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily bool Bentley\+Ottmann\+::is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tree}{Tree}}$<$ \mbox{\hyperlink{class_event}{Event}} $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to check if tree is empty or not 
+
+\begin{DoxyReturn}{Returns}
+true if tree is empty 
+
+false if tree is not empty 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_bentley_ottmann_a0d6e0ca2c6143e327cf0bb3ea209a6f3}\label{class_bentley_ottmann_a0d6e0ca2c6143e327cf0bb3ea209a6f3}} 
+\index{BentleyOttmann@{BentleyOttmann}!makeQueryNode@{makeQueryNode}}
+\index{makeQueryNode@{makeQueryNode}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{makeQueryNode()}{makeQueryNode()}}
+{\footnotesize\ttfamily void Bentley\+Ottmann\+::make\+Query\+Node (\begin{DoxyParamCaption}\item[{long double}]{x,  }\item[{\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&}]{sl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+generating a query node for sweep line to find intersection 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate of the event point \\
+\hline
+{\em sl} & sweep line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bentley_ottmann_a60418f4e81761f03a281396d3ff04fbc}\label{class_bentley_ottmann_a60418f4e81761f03a281396d3ff04fbc}} 
+\index{BentleyOttmann@{BentleyOttmann}!printIntersectionPoint@{printIntersectionPoint}}
+\index{printIntersectionPoint@{printIntersectionPoint}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{printIntersectionPoint()}{printIntersectionPoint()}}
+{\footnotesize\ttfamily void Bentley\+Ottmann\+::print\+Intersection\+Point (\begin{DoxyParamCaption}\item[{long double}]{x,  }\item[{long double}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to print intersection point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate of the intersection point \\
+\hline
+{\em y} & y coordinate of the intersection point \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bentley_ottmann_a80bcbcb0e6e61f7a57dcedae77e99052}\label{class_bentley_ottmann_a80bcbcb0e6e61f7a57dcedae77e99052}} 
+\index{BentleyOttmann@{BentleyOttmann}!processAllSegmentsAtThisEventPoint@{processAllSegmentsAtThisEventPoint}}
+\index{processAllSegmentsAtThisEventPoint@{processAllSegmentsAtThisEventPoint}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{processAllSegmentsAtThisEventPoint()}{processAllSegmentsAtThisEventPoint()}}
+{\footnotesize\ttfamily void Bentley\+Ottmann\+::process\+All\+Segments\+At\+This\+Event\+Point (\begin{DoxyParamCaption}\item[{long double}]{x,  }\item[{long double}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to process all the line segments at this event point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate of the event point \\
+\hline
+{\em y} & y coordinate of the event point \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bentley_ottmann_a83593c34c2f21e01620832b0b29e32db}\label{class_bentley_ottmann_a83593c34c2f21e01620832b0b29e32db}} 
+\index{BentleyOttmann@{BentleyOttmann}!reinsertLineSegments@{reinsertLineSegments}}
+\index{reinsertLineSegments@{reinsertLineSegments}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{reinsertLineSegments()}{reinsertLineSegments()}}
+{\footnotesize\ttfamily void Bentley\+Ottmann\+::reinsert\+Line\+Segments (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to re insert line segments in status tree 
+
+\mbox{\Hypertarget{class_bentley_ottmann_a1fca51e4a4b7078a6ec384d334d77885}\label{class_bentley_ottmann_a1fca51e4a4b7078a6ec384d334d77885}} 
+\index{BentleyOttmann@{BentleyOttmann}!removeDuplicateEventPoints@{removeDuplicateEventPoints}}
+\index{removeDuplicateEventPoints@{removeDuplicateEventPoints}!BentleyOttmann@{BentleyOttmann}}
+\doxysubsubsection{\texorpdfstring{removeDuplicateEventPoints()}{removeDuplicateEventPoints()}}
+{\footnotesize\ttfamily void Bentley\+Ottmann\+::remove\+Duplicate\+Event\+Points (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_event}{Event}}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to remove duplicate event points 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & event whose duplicates are to be removed \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Bentley-\/\+Ottmann.\+h\end{DoxyCompactItemize}

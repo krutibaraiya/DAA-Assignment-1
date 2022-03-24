@@ -1,0 +1,309 @@
+\hypertarget{classTree}{}\doxysection{Tree$<$ T $>$ Class Template Reference}
+\label{classTree}\index{Tree$<$ T $>$@{Tree$<$ T $>$}}
+
+
+Generic tree class.  
+
+
+
+
+{\ttfamily \#include $<$Tree.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTree_a30ebe31999547d31fea5b40cc805f6a2}{Tree}} ()
+\begin{DoxyCompactList}\small\item\em number of nodes in the tree \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTree_a3abef7e8b2f47021566f25ad2f2d088b}{balance}} (vector$<$ \mbox{\hyperlink{classNode}{Node}}$<$ T $>$ $\ast$$\ast$ $>$ path)
+\begin{DoxyCompactList}\small\item\em method to balance the tree \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTree_a6be28a11065f2213cfc8455e92706429}{insert\+\_\+node}} (T data)
+\begin{DoxyCompactList}\small\item\em method to insert a new node into the tree \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTree_a0c02d7d11af91e6d627da7ede9d48122}{delete\+\_\+node}} (T data)
+\begin{DoxyCompactList}\small\item\em method to delete a node from the tree \end{DoxyCompactList}\item 
+T $\ast$ \mbox{\hyperlink{classTree_a4cc55e62fb653aafb9eddbf320201c91}{extract\+\_\+min}} ()
+\begin{DoxyCompactList}\small\item\em method to extract the node with minimum value from the tree \end{DoxyCompactList}\item 
+T $\ast$ \mbox{\hyperlink{classTree_a4d4778e3765743357abe6e0f9c5b1223}{extract\+\_\+max}} ()
+\begin{DoxyCompactList}\small\item\em method to extract the node with maximum value from the tree \end{DoxyCompactList}\item 
+T $\ast$ \mbox{\hyperlink{classTree_a226f32f00fd70ac5625ddd9f06157e0a}{left\+\_\+neighbour}} (T data)
+\begin{DoxyCompactList}\small\item\em method to find the left neighbour of a particular node \end{DoxyCompactList}\item 
+T $\ast$ \mbox{\hyperlink{classTree_a99bdb65c51ce91cf7e022872be93153f}{right\+\_\+neighbour}} (T data)
+\begin{DoxyCompactList}\small\item\em method to find the right neighbour of a particular node \end{DoxyCompactList}\item 
+T $\ast$ \mbox{\hyperlink{classTree_a15f4a755102daffa09c5351b338c4313}{lower\+Bound}} (T data)
+\begin{DoxyCompactList}\small\item\em method to find the lower bound of a particular node \end{DoxyCompactList}\item 
+T $\ast$ \mbox{\hyperlink{classTree_a98614258c3cf3d7059c96f0113ea0e3d}{upper\+Bound}} (T data)
+\begin{DoxyCompactList}\small\item\em method to find the upper bound of a particular node \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTree_a4b7327e3af9eaeef5a755a8349ff955f}{delete\+Upper\+Bound}} (T data)
+\begin{DoxyCompactList}\small\item\em method to find the upper bound and delete that node \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTree_a108de80e0e0552bca5cb7ebdd7889245}{search}} (T data)
+\begin{DoxyCompactList}\small\item\em method to search a particular node in the tree \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTree_a2da2521fb8acc5bc679a317d0e708a78}{display}} (\mbox{\hyperlink{classNode}{Node}}$<$ T $>$ $\ast$cur, int depth=0, int state=0)
+\begin{DoxyCompactList}\small\item\em method to display the tree \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTree_a9cee99dbe10e0a4a9c315707a2eb10ac}{display}} ()
+\begin{DoxyCompactList}\small\item\em method to display the tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTree_a1e075fff9e3421c0ad8012efadfc2ffa}\label{classTree_a1e075fff9e3421c0ad8012efadfc2ffa}} 
+\mbox{\hyperlink{classNode}{Node}}$<$ T $>$ $\ast$ {\bfseries root}
+\item 
+\mbox{\Hypertarget{classTree_a0d565c1db734d0be675d326eeb13c32d}\label{classTree_a0d565c1db734d0be675d326eeb13c32d}} 
+int \mbox{\hyperlink{classTree_a0d565c1db734d0be675d326eeb13c32d}{no\+\_\+of\+\_\+nodes}}
+\begin{DoxyCompactList}\small\item\em pointer to the root node of the tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Tree$<$ T $>$}
+
+Generic tree class. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTree_a30ebe31999547d31fea5b40cc805f6a2}\label{classTree_a30ebe31999547d31fea5b40cc805f6a2}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!Tree@{Tree}}
+\index{Tree@{Tree}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Tree()}{Tree()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::\mbox{\hyperlink{classTree}{Tree}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+number of nodes in the tree 
+
+Construct a new \mbox{\hyperlink{classTree}{Tree}} object 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTree_a3abef7e8b2f47021566f25ad2f2d088b}\label{classTree_a3abef7e8b2f47021566f25ad2f2d088b}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!balance@{balance}}
+\index{balance@{balance}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{balance()}{balance()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::balance (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classNode}{Node}}$<$ T $>$ $\ast$$\ast$ $>$}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to balance the tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & path of the tree to be balanced \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTree_a0c02d7d11af91e6d627da7ede9d48122}\label{classTree_a0c02d7d11af91e6d627da7ede9d48122}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!delete\_node@{delete\_node}}
+\index{delete\_node@{delete\_node}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{delete\_node()}{delete\_node()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::delete\+\_\+node (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to delete a node from the tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data of the node to be deleted from the tree \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTree_a4b7327e3af9eaeef5a755a8349ff955f}\label{classTree_a4b7327e3af9eaeef5a755a8349ff955f}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!deleteUpperBound@{deleteUpperBound}}
+\index{deleteUpperBound@{deleteUpperBound}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{deleteUpperBound()}{deleteUpperBound()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::delete\+Upper\+Bound (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to find the upper bound and delete that node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data of the node whose upper bound is to be found and delete \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTree_a9cee99dbe10e0a4a9c315707a2eb10ac}\label{classTree_a9cee99dbe10e0a4a9c315707a2eb10ac}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!display@{display}}
+\index{display@{display}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to display the tree 
+
+\mbox{\Hypertarget{classTree_a2da2521fb8acc5bc679a317d0e708a78}\label{classTree_a2da2521fb8acc5bc679a317d0e708a78}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!display@{display}}
+\index{display@{display}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNode}{Node}}$<$ T $>$ $\ast$}]{cur,  }\item[{int}]{depth = {\ttfamily 0},  }\item[{int}]{state = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to display the tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cur} & \\
+\hline
+{\em depth} & \\
+\hline
+{\em state} & \\
+\hline
+\end{DoxyParams}
+left
+
+right\mbox{\Hypertarget{classTree_a4d4778e3765743357abe6e0f9c5b1223}\label{classTree_a4d4778e3765743357abe6e0f9c5b1223}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!extract\_max@{extract\_max}}
+\index{extract\_max@{extract\_max}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{extract\_max()}{extract\_max()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::extract\+\_\+max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to extract the node with maximum value from the tree 
+
+\begin{DoxyReturn}{Returns}
+T$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTree_a4cc55e62fb653aafb9eddbf320201c91}\label{classTree_a4cc55e62fb653aafb9eddbf320201c91}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!extract\_min@{extract\_min}}
+\index{extract\_min@{extract\_min}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{extract\_min()}{extract\_min()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::extract\+\_\+min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to extract the node with minimum value from the tree 
+
+\begin{DoxyReturn}{Returns}
+T$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTree_a6be28a11065f2213cfc8455e92706429}\label{classTree_a6be28a11065f2213cfc8455e92706429}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!insert\_node@{insert\_node}}
+\index{insert\_node@{insert\_node}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert\_node()}{insert\_node()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::insert\+\_\+node (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to insert a new node into the tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data to be stored in the new node \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTree_a226f32f00fd70ac5625ddd9f06157e0a}\label{classTree_a226f32f00fd70ac5625ddd9f06157e0a}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!left\_neighbour@{left\_neighbour}}
+\index{left\_neighbour@{left\_neighbour}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{left\_neighbour()}{left\_neighbour()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::left\+\_\+neighbour (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to find the left neighbour of a particular node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data of the node whose left neighbour is to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T$\ast$ 
+\end{DoxyReturn}
+find rightmost node in left subtree\mbox{\Hypertarget{classTree_a15f4a755102daffa09c5351b338c4313}\label{classTree_a15f4a755102daffa09c5351b338c4313}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!lowerBound@{lowerBound}}
+\index{lowerBound@{lowerBound}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{lowerBound()}{lowerBound()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::lower\+Bound (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to find the lower bound of a particular node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data of the node whose lower bound is to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTree_a99bdb65c51ce91cf7e022872be93153f}\label{classTree_a99bdb65c51ce91cf7e022872be93153f}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!right\_neighbour@{right\_neighbour}}
+\index{right\_neighbour@{right\_neighbour}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{right\_neighbour()}{right\_neighbour()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::right\+\_\+neighbour (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to find the right neighbour of a particular node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data of the node whose right neighbour is to be found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T$\ast$ 
+\end{DoxyReturn}
+find rightmost node in left subtree\mbox{\Hypertarget{classTree_a108de80e0e0552bca5cb7ebdd7889245}\label{classTree_a108de80e0e0552bca5cb7ebdd7889245}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!search@{search}}
+\index{search@{search}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::search (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to search a particular node in the tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data of the node to be searched \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if node is found 
+
+false if node is not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTree_a98614258c3cf3d7059c96f0113ea0e3d}\label{classTree_a98614258c3cf3d7059c96f0113ea0e3d}} 
+\index{Tree$<$ T $>$@{Tree$<$ T $>$}!upperBound@{upperBound}}
+\index{upperBound@{upperBound}!Tree$<$ T $>$@{Tree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{upperBound()}{upperBound()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ \mbox{\hyperlink{classTree}{Tree}}$<$ T $>$\+::upper\+Bound (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to find the upper bound of a particular node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & data of the node whose upper bound is to be found ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T$\ast$ 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Tree.\+h\end{DoxyCompactItemize}

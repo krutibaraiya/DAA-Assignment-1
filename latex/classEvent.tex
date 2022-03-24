@@ -1,0 +1,181 @@
+\hypertarget{classEvent}{}\doxysection{Event Class Reference}
+\label{classEvent}\index{Event@{Event}}
+
+
+\mbox{\hyperlink{classEvent}{Event}} class.  
+
+
+
+
+{\ttfamily \#include $<$Event.\+h$>$}
+
+
+
+Collaboration diagram for Event\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEvent_a5a40dd4708297f7031e29b39e039ae10}{Event}} ()
+\begin{DoxyCompactList}\small\item\em index of the line segment containing event point \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvent_ac648a4dedf38efb5223fe4ec9b213334}{Event}} (\mbox{\hyperlink{classPoint}{Point}} P, int \mbox{\hyperlink{classEvent_a30b83db61536a52cc9776d9baa6a2f4c}{event\+\_\+type}}, int event\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEvent}{Event}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEvent_a74fec882ff54b9c7e1e9992adccf89e8}{operator$>$}} (const \mbox{\hyperlink{classEvent}{Event}} \&E) const
+\begin{DoxyCompactList}\small\item\em operator overloading for $>$ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEvent_a8447c011934d0689ac02d12c5a3da5a7}{operator$<$}} (const \mbox{\hyperlink{classEvent}{Event}} \&E) const
+\begin{DoxyCompactList}\small\item\em ~\newline
+ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEvent_acd6bf0b4f7cf4c49c79420e18b4162c1}{operator==}} (\mbox{\hyperlink{classEvent}{Event}} \&E)
+\begin{DoxyCompactList}\small\item\em operator overloading for == \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEvent_a4d290cb47cbc1709214a1b02e318c9ca}{operator!=}} (\mbox{\hyperlink{classEvent}{Event}} \&E)
+\begin{DoxyCompactList}\small\item\em operator overloading for != \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEvent_a92b36ecd081271a26175337824d0f3f4}\label{classEvent_a92b36ecd081271a26175337824d0f3f4}} 
+\mbox{\hyperlink{classPoint}{Point}} {\bfseries P}
+\item 
+int \mbox{\hyperlink{classEvent_a30b83db61536a52cc9776d9baa6a2f4c}{event\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classEvent}{Event}} point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEvent_aae4b45673b46091073d77c3f82a5d32f}\label{classEvent_aae4b45673b46091073d77c3f82a5d32f}} 
+int {\bfseries event\+\_\+index}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classEvent}{Event}} class. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEvent_a5a40dd4708297f7031e29b39e039ae10}\label{classEvent_a5a40dd4708297f7031e29b39e039ae10}} 
+\index{Event@{Event}!Event@{Event}}
+\index{Event@{Event}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{Event()}{Event()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Event\+::\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+index of the line segment containing event point 
+
+Construct a new \mbox{\hyperlink{classEvent}{Event}} object \mbox{\Hypertarget{classEvent_ac648a4dedf38efb5223fe4ec9b213334}\label{classEvent_ac648a4dedf38efb5223fe4ec9b213334}} 
+\index{Event@{Event}!Event@{Event}}
+\index{Event@{Event}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{Event()}{Event()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Event\+::\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPoint}{Point}}}]{P,  }\item[{int}]{event\+\_\+type,  }\item[{int}]{event\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classEvent}{Event}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & \mbox{\hyperlink{classEvent}{Event}} point \\
+\hline
+{\em event\+\_\+type} & type of the event \\
+\hline
+{\em event\+\_\+index} & index of the line segment \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEvent_a4d290cb47cbc1709214a1b02e318c9ca}\label{classEvent_a4d290cb47cbc1709214a1b02e318c9ca}} 
+\index{Event@{Event}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Event\+::operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEvent}{Event}} \&}]{E }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator overloading for != 
+
+
+\begin{DoxyParams}{Parameters}
+{\em E} & event to be compared with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if both events are not equal 
+
+false if both events are equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvent_a8447c011934d0689ac02d12c5a3da5a7}\label{classEvent_a8447c011934d0689ac02d12c5a3da5a7}} 
+\index{Event@{Event}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Event\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEvent}{Event}} \&}]{E }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em E} & event to be compared with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this event is smaller than the compared event 
+
+false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvent_acd6bf0b4f7cf4c49c79420e18b4162c1}\label{classEvent_acd6bf0b4f7cf4c49c79420e18b4162c1}} 
+\index{Event@{Event}!operator==@{operator==}}
+\index{operator==@{operator==}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Event\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEvent}{Event}} \&}]{E }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator overloading for == 
+
+
+\begin{DoxyParams}{Parameters}
+{\em E} & event to be compared \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if both events are equal 
+
+false if both events are not equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvent_a74fec882ff54b9c7e1e9992adccf89e8}\label{classEvent_a74fec882ff54b9c7e1e9992adccf89e8}} 
+\index{Event@{Event}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Event\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEvent}{Event}} \&}]{E }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator overloading for $>$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em E} & event to be compared \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the event is greater than the compared event 
+
+false if the event is smaller than the compared event 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classEvent_a30b83db61536a52cc9776d9baa6a2f4c}\label{classEvent_a30b83db61536a52cc9776d9baa6a2f4c}} 
+\index{Event@{Event}!event\_type@{event\_type}}
+\index{event\_type@{event\_type}!Event@{Event}}
+\doxysubsubsection{\texorpdfstring{event\_type}{event\_type}}
+{\footnotesize\ttfamily int Event\+::event\+\_\+type}
+
+
+
+\mbox{\hyperlink{classEvent}{Event}} point. 
+
+0 = horizontal line segment start 1 = horizontal line segment end 2 = line segment start 3 = line segment end 4 = intersection point 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Event.\+h\end{DoxyCompactItemize}

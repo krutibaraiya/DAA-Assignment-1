@@ -3,13 +3,15 @@
 
 using namespace std;
 
-//EPS required for comparing events or not??
-// const long double EPS = 1e-15;
 
+/**
+ * @brief Event class
+ * 
+ */
 class Event
 {
     public:
-    Point P;
+    Point P; /// Event point
 	/**
 	 * 0 = horizontal line segment start
 	 * 1 = horizontal line segment end
@@ -18,16 +20,27 @@ class Event
 	 * 4 = intersection point
 	 */
     int event_type;
-    int event_index;
+    int event_index; /// index of the line segment containing event point
 
 
     public:
+	/**
+	 * @brief Construct a new Event object
+	 * 
+	 */
     Event()
     {
         event_type = -1;
         event_index = 0;
     }
 
+	/**
+	 * @brief Construct a new Event object
+	 * 
+	 * @param P Event point
+	 * @param event_type type of the event
+	 * @param event_index index of the line segment 
+	 */
     Event(Point P, int event_type, int event_index)
     {
         this -> P = P;
@@ -35,7 +48,13 @@ class Event
         this -> event_index = event_index;
     }
 
-
+	/**
+	 * @brief operator overloading for >
+	 * 
+	 * @param E event to be compared
+	 * @return true if the event is greater than the compared event
+	 * @return false if the event is smaller than the compared event
+	 */
     bool operator > (const Event& E) const	
 	{
 		if(P.y != E.P.y)
@@ -53,6 +72,14 @@ class Event
 			
 	}
 
+	
+	/**
+	 * @brief 	
+	 * 
+	 * @param E event to be compared with
+	 * @return true if this event is smaller than the compared event
+	 * @return false otherwise
+	 */
     bool operator < (const Event& E) const	
 	{
 		if(P.y != E.P.y)
@@ -70,12 +97,26 @@ class Event
 			
 
 	}
-
+		
+	/**
+	 * @brief operator overloading for ==
+	 * 
+	 * @param E event to be compared
+	 * @return true if both events are equal
+	 * @return false if both events are not equal
+	 */
     bool operator == (Event &E) 
 	{
 		return (P == E.P && event_index == E.event_index && event_type == E.event_type);
 	}
-
+	
+	/**
+	 * @brief operator overloading for !=
+	 * 
+	 * @param E event to be compared with
+	 * @return true if both events are not equal
+	 * @return false if both events are equal
+	 */
     bool operator != (Event &E) 
 	{
 		return !((P == E.P && event_index == E.event_index && event_type == E.event_type));

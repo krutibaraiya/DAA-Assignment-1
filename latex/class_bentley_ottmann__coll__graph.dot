@@ -1,0 +1,19 @@
+digraph "BentleyOttmann"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="BentleyOttmann",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="sweep_line status"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" eventQueue" ];
+  Node2 [label="Tree\< Event \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_tree.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" root" ];
+  Node3 [label="Node\< Event \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_node.html",tooltip=" "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" horizontal\nsecondHorizontal" ];
+  Node4 [label="LineSegment",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_line_segment.html",tooltip="Line segment class."];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" A\nB" ];
+  Node5 [label="Point",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_point.html",tooltip="Point class."];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" statusQueue" ];
+  Node6 [label="Tree\< LineSegment \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_tree.html",tooltip=" "];
+  Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" root" ];
+  Node7 [label="Node\< LineSegment \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_node.html",tooltip=" "];
+}

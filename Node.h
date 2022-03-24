@@ -1,15 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/**
+ * @brief Generic node class
+ * 
+ * @tparam T 
+ */
 template<class T>
 class Node {
     public:
-    Node *left;
-    Node *right;
-    T data;
-    int height; // Height of that subtree
-    int cnt; // Number of nodes in that subtree
+    Node *left; /// Pointer to the left child
+    Node *right; /// Pointer to the right child
+    T data; /// Data stored at the node
+    int height; /// Height of subtree
+    int cnt; /// Number of nodes in subtree
 
+    /**
+     * @brief Construct a new Node object
+     * 
+     * @param data 
+     */
     Node(T data) {       
         left = NULL;
         right = NULL;
@@ -18,6 +28,10 @@ class Node {
         cnt = 1;
     }
 
+    /**
+     * @brief method to update the height and count of tree while balancing 
+     * 
+     */
     void modify_height_and_cnt() {
         int l, c_l;
         if(left != NULL) {
@@ -43,6 +57,11 @@ class Node {
         cnt = c_l + c_r + 1;
     }
 
+    /**
+     * @brief method to compute the height difference between the left and right subtree
+     * 
+     * @return int 
+     */
     int height_difference_of_left_and_right_subtree() {
         int balance_factor, h_l, h_r;
 
@@ -61,6 +80,11 @@ class Node {
         return balance_factor;
     }
 
+    /**
+     * @brief method to left rotate the subtree
+     * 
+     * @return Node* 
+     */
     Node * left_rotate() {
 		Node * R = right;
 		right = right -> left;
@@ -70,6 +94,11 @@ class Node {
 		return R;
 	}
 
+    /**
+     * @brief method to right rotate the subtree
+     * 
+     * @return Node* 
+     */
     Node * right_rotate() {
 		Node * L = left;
 		left = left -> right;

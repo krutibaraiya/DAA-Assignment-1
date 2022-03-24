@@ -2,30 +2,34 @@
 #include "Node.h"
 #include "Event.h"
 
-
+/**
+ * @brief Generic tree class
+ * 
+ * @tparam T 
+ */
 template<class T>
 class Tree
 {
-    //Todo:- AVL Tree
-    //inserting nodes -- done
-    //deleting nodes -- done
-    //balance the tree -- done
-    //find left neighbour
-    //find right neighbour
-    //..
-    //..
-    //whatever else that is required(?) while implementing bentley
 
     public:
-    Node<T> * root;
-    int no_of_nodes;
+    Node<T> * root; /// pointer to the root node of the tree
+    int no_of_nodes; /// number of nodes in the tree
 
+	/**
+	 * @brief Construct a new Tree object
+	 * 
+	 */
     Tree()
     {
         this -> root = NULL;
         no_of_nodes = 0;
     }
 
+	/**
+	 * @brief method to balance the tree
+	 * 
+	 * @param path path of the tree to be balanced
+	 */
     void balance(vector< Node<T> ** > path)
 	{
 		reverse(path.begin(),path.end());
@@ -52,6 +56,11 @@ class Tree
 		}
 	}
 
+	/**
+	 * @brief method to insert a new node into the tree
+	 * 
+	 * @param data data to be stored in the new node
+	 */
     void insert_node(T data)
 	{
 		vector< Node<T>** > path; 
@@ -77,7 +86,11 @@ class Tree
 	} 
 
 
-
+	/**
+	 * @brief method to delete a node from the tree
+	 * 
+	 * @param data data of the node to be deleted from the tree
+	 */
     void delete_node(T data)
 	{
 		Node<T> ** node = &root;
@@ -148,7 +161,11 @@ class Tree
 	}
 
 
-	
+	/**
+	 * @brief method to extract the node with minimum value from the tree
+	 * 
+	 * @return T* 
+	 */
 	T* extract_min() {
 		Node<T> *current = root;
 		while(current) {
@@ -160,6 +177,12 @@ class Tree
 		}
 		return NULL;
 	}
+
+	/**
+	 * @brief method to extract the node with maximum value from the tree
+	 * 
+	 * @return T* 
+	 */
 	T* extract_max() {
 		Node<T*> current;
 		current = root;
@@ -173,6 +196,12 @@ class Tree
 		return NULL;
 	}
 	
+	/**
+	 * @brief method to find the left neighbour of a particular node
+	 * 
+	 * @param data data of the node whose left neighbour is to be found
+	 * @return T* 
+	 */
 	T * left_neighbour(T data) {
 		T* left = NULL;
 		Node<T> *current = root;
@@ -190,7 +219,7 @@ class Tree
 			}
 		}
 
-		if(current) //find rightmost node in left subtree
+		if(current) ///find rightmost node in left subtree
 		{
 			current = current -> left;
 			while(current)
@@ -202,6 +231,12 @@ class Tree
 		return left;
 	}
 
+	/**
+	 * @brief method to find the right neighbour of a particular node
+	 * 
+	 * @param data data of the node whose right neighbour is to be found
+	 * @return T* 
+	 */
 	T * right_neighbour(T data) {
 		T* right = NULL;
 		Node<T> *current = root;
@@ -219,7 +254,7 @@ class Tree
 			}
 		}
 
-		if(current) //find rightmost node in left subtree
+		if(current) ///find rightmost node in left subtree
 		{
 			current = current -> right;
 			while(current) {
@@ -230,6 +265,12 @@ class Tree
 		return right;
 	}
 
+	/**
+	 * @brief method to find the lower bound of a particular node
+	 * 
+	 * @param data data of the node whose lower bound is to be found
+	 * @return T* 
+	 */
 	T* lowerBound(T data) {
 		Node <T*> current = root;
 		T* node = NULL;
@@ -246,6 +287,12 @@ class Tree
 		return node;
 	}
 
+	/**
+	 * @brief method to find the upper bound of a particular node
+	 * 
+	 * @param data data of the node whose upper bound is to be found	
+	 * @return T* 
+	 */
 	T* upperBound(T data) {
 		Node <T> ** current = &root;
 		T* node = NULL;
@@ -261,78 +308,29 @@ class Tree
 		return node;
 	}
 
+	/**
+	 * @brief method to find the upper bound and delete that node 
+	 * 
+	 * @param data data of the node whose upper bound is to be found and delete
+	 */
 	void deleteUpperBound(T data) {
-		// Node <T> ** current = &root;
-		// vector< Node <T> ** > path;
-		// int size;
-
-		// while(*current) {
-		// 	path.push_back(current);
-
-		// 	if((*current) -> data > data) {
-		// 		size = path.size();
-		// 		current = &(*current) -> left;
-		// 	} else {
-		// 		current = & (*current) -> right;
-		// 	}
-		// }
-
-		
-		// path.resize(size);
-		// current = path[size - 1];
-		// if(*current == NULL) {
-		// 	cout << "value not found in upper bound and delete" << endl;
-		// 	cout << data.index << endl;
-		// 	assert(1 == 2);
-		// 	return ;
-		// }
-		// int pathsize = path.size();
-		// if((*current) -> left == NULL && (*current) -> right == NULL) {
-		// 	delete *current;
-		// 	*current = NULL;
-		// 	path.pop_back();
-		// } else if((*current) -> right == NULL) {
-		// 	Node <T> *toRemove = *current;
-		// 	*current = (*current) -> left;
-		// 	delete toRemove;
-		// 	path.pop_back();
-		// } else {
-		// 	Node <T> **successor = &((*current) -> right);
-		// 	while((*successor) -> left) {
-		// 		path.push_back(successor);
-		// 		successor = &(*successor) -> left;
-		// 	}
-		// 	if(*successor == (*current) -> right) {
-		// 		(*successor) -> left = (*current) -> left;
-		// 		Node <T> *toRemove = *current;
-		// 		*current = *successor;
-		// 		delete toRemove;
-		// 	} else {
-		// 		Node <T> *temp = *path.back(), *suc = *successor;
-		// 		temp -> left = (*successor) -> right;
-		// 		suc -> left = (*current) -> left;
-		// 		suc -> right = (*current) -> right;
-		// 		delete *current;
-		// 		*current = suc;
-		// 		path[pathsize] = &(suc -> right);
-		// 	}
-		// }
-		// balance(path);
-		// no_of_nodes--;
-
 		T* node = upperBound(data);
 		if(node == NULL) {
 			return ;
 		}
 		T value = (*node);
-
 		delete_node(value); 
-
-		//delete_node(&upperBound(data)->data);
 
 		return;
 	}
 
+	/**
+	 * @brief method to search a particular node in the tree
+	 * 
+	 * @param data data of the node to be searched
+	 * @return true if node is found
+	 * @return false if node is not found
+	 */
 	bool search(T data) {
 		Node<T> *current = root;
 		while(current)
@@ -351,27 +349,35 @@ class Tree
 		return 0;
 	}
 
-
+	/**
+	 * @brief method to display the tree
+	 * 
+	 * @param cur 
+	 * @param depth 
+	 * @param state 
+	 */
 	void display(Node<T> *cur,int depth = 0,int state = 0)
 	{
-		if (cur->left)
+		if (cur->left) {
 		    display(cur->left, depth + 1, 1);
-		    
-		    for (int i=0; i < depth; i++)
-		        printf("     ");
-		    
-		    if (state == 1) // left
-		        printf("┌───");
-		    else if (state == 2)  // right
-		        printf("└───");
-		    
+		}
+		
+		for (int i=0; i < depth; i++)
+		    printf("     ");
+		if (state == 1) /// left
+		    printf("┌───");
+		else if (state == 2)  /// right
+		    printf("└───");
 		    // cout << "[" << cur->data.A.x << " " << cur->data.A.y << " " << cur->data.B.x << " " << cur->data.B.y << "] - (" << cur->cnt << ", "  << cur -> height << ")" << endl;
 			cout << "[" << cur->data.P.x << " " << cur->data.P.y << "] - (" << cur->cnt << ", "  << cur -> height << ")" << endl;
-		    
-		    if (cur->right)
+		if (cur->right)
 		display(cur->right, depth + 1, 2);
 	}
 
+	/**
+	 * @brief method to display the tree
+	 * 
+	 */
 	void display()
 	{
 		cout << endl;

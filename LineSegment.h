@@ -2,23 +2,42 @@
 #include "Point.h"
 using namespace std;
 
-
+/**
+ * @brief Line segment class
+ * 
+ */
 class LineSegment
 {
     public:
-    Point A;
-    Point B;
-    static long double sweep_line;   //sweep-line status
-    int index;
+    Point A; /// Starting point of the line segment
+    Point B; /// Ending point of the line segment
+    static long double sweep_line; /// sweep-line status
+    int index; /// index of the line segment
 
+    /**
+     * @brief Construct a new Line Segment object
+     * 
+     */
+    public:
     LineSegment()
     {
         this -> index = -1;
     }
 
+    /**
+     * @brief Construct a new Line Segment object
+     * 
+     * @param sl 
+     */
     LineSegment(long double sl) {
         this -> sweep_line = sl;
     }
+
+    /**
+     * @brief Construct a new Line Segment object
+     * 
+     * @param L 
+     */
     LineSegment(const LineSegment &L)
     {
         A = L.A;
@@ -26,6 +45,13 @@ class LineSegment
         index = L.index;
     }
 
+    /**
+     * @brief Construct a new Line Segment object
+     * 
+     * @param X Point X of the line segment
+     * @param Y Point Y of the line segment
+     * @param index index of the line segment
+     */
     LineSegment(Point X, Point Y, int index)
     {
         A = X;
@@ -33,6 +59,11 @@ class LineSegment
         this->index = index;
     }
 
+    /**
+     * @brief method to find the intersection of the sweep line with the line segment
+     * 
+     * @return long double 
+     */
     long double intersection_of_sweep_line_with_linesegment()
     {   
         if(abs(A.x - B.x) < EPS)  //vertical 
@@ -48,7 +79,13 @@ class LineSegment
         return intersection;
     }
 
-    //todo- intersection with segment and operator overload(?)
+    /**
+     * @brief operator overloading for <
+     * 
+     * @param ls line segment to be compared with
+     * @return true if the given line segment is smaller than the compared segment
+     * @return false if the given line segment is greater than the compared segment
+     */
     bool operator < (LineSegment &ls) {
         long double x1 = intersection_of_sweep_line_with_linesegment();
         long double x2 = ls.intersection_of_sweep_line_with_linesegment();
@@ -58,6 +95,13 @@ class LineSegment
         return check;
     }
 
+    /**
+     * @brief operator overloading for >
+     * 
+     * @param ls the line segment to be compared with
+     * @return true if line segment is greater than the compared line segment
+     * @return false if line segment is smaller than the compared line segment
+     */
     bool operator > (LineSegment &ls) {
         long double x1 = intersection_of_sweep_line_with_linesegment();
         long double x2 = ls.intersection_of_sweep_line_with_linesegment();
@@ -67,13 +111,34 @@ class LineSegment
         return check;
     }
 
+    /**
+     * @brief operator overloading for ==
+     * 
+     * @param ls line segment to be compared with
+     * @return true if both line segments are equal
+     * @return false if both line segments are not equal
+     */
     bool operator == (LineSegment &ls) {
         return (A == ls.A && B == ls.B);
     }
+
+    /**
+     * @brief operator overloading for !=
+     * 
+     * @param ls line segment
+     * @return true if both line segments are not equal
+     * @return false if both line segments are equal
+     */
     bool operator != (LineSegment &ls) {
         return !(A == ls.A && B == ls.B);
     }
 
+    /**
+     * @brief method to find intersection points of two line segments
+     * 
+     * @param ls 
+     * @return pair < bool , Point > 
+     */
     pair < bool , Point > intersection_with_linesegment (LineSegment &ls) {
         long double x, y, z, x1, y1, z1;
         /**
@@ -84,7 +149,7 @@ class LineSegment
          * z stores the x intercept of this line segment which call this method
          * z1 stores the x intercept of line segment ls
          */
-        if(abs(A.x - B.x) < EPS) {  // parralel to y axis
+        if(abs(A.x - B.x) < EPS) {  /// parralel to y axis
             x = 1, y = 0, z = -A.x;
         } else {
             x = (A.y - B.y) / (B.x - A.x);
@@ -92,7 +157,7 @@ class LineSegment
             z = -(x * A.x + A.y);
         }
 
-        if(abs(ls.A.x - ls.B.x) < EPS) { // parallel to y axis
+        if(abs(ls.A.x - ls.B.x) < EPS) { /// parallel to y axis
             x1 = 1, y1 = 0, z1 = -ls.A.x;
         } else {
             x1 = (ls.A.y - ls.B.y) / (ls.B.x - ls.A.x);
@@ -100,11 +165,11 @@ class LineSegment
             z1 = -(x1 * ls.A.x + ls.A.y); 
         }
 
-        if(abs(x - x1) < EPS && abs(y - y1) < EPS) { // parallel to y axis
+        if(abs(x - x1) < EPS && abs(y - y1) < EPS) { /// parallel to y axis
             return make_pair(0, Point());
         } else {
-            long double a = (y * z1 - z * y1) / (x * y1 - y * x1);
-            long double b;
+            long double a = (y * z1 - z * y1) / (x * y1 - y * x1); /// x coordinate of the intersection point
+            long double b; /// y coordinate of the intersection points
 
             if(abs(y) < EPS) {
                 b = -x1 * a - z1;
@@ -112,8 +177,13 @@ class LineSegment
                 b = -x * a - z;
             }
             // cout << "a: " << a << "b: " << b << "x: " << x << "y: " << y << "z: " << z << "x1: " << x1 << "y1: " << y1 << "z1: " << z1 << endl;
-            Point intersection = Point(a,b);
+            Point intersection = Point(a,b); /// constructing the intersection point
             // cout << intersection.x << " " << intersection.y << "intersection" << endl;
+
+            /**
+             * @brief check if the line segments actually intersect without extending
+             * 
+             */
             if(intersection.check_if_a_point_lies_between_two_points(A,B) && intersection.check_if_a_point_lies_between_two_points(ls.A, ls.B)) {
                 return make_pair(1, intersection);
             } else {

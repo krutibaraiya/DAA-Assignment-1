@@ -1,0 +1,257 @@
+\hypertarget{class_line_segment}{}\doxysection{Line\+Segment Class Reference}
+\label{class_line_segment}\index{LineSegment@{LineSegment}}
+
+
+Line segment class.  
+
+
+
+
+{\ttfamily \#include $<$Line\+Segment.\+h$>$}
+
+
+
+Collaboration diagram for Line\+Segment\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_line_segment_a4c2da2ff2d3979f28bfcb24948a8e6a9}{Line\+Segment}} ()
+\begin{DoxyCompactList}\small\item\em index of the line segment \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_line_segment_af421537aff895d53e51d2afdee299d48}{Line\+Segment}} (long double sl)
+\begin{DoxyCompactList}\small\item\em Construct a new Line Segment object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_line_segment_afd569e0e9ce6380abc8a7f0b774bc567}{Line\+Segment}} (const \mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&L)
+\begin{DoxyCompactList}\small\item\em Construct a new Line Segment object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_line_segment_a6d1ca97316e3da6f4f33a7ca81985a40}{Line\+Segment}} (\mbox{\hyperlink{class_point}{Point}} X, \mbox{\hyperlink{class_point}{Point}} Y, int \mbox{\hyperlink{class_line_segment_ae740fa5ae17bf8e85be6c0e0ab77c7be}{index}})
+\begin{DoxyCompactList}\small\item\em Construct a new Line Segment object. \end{DoxyCompactList}\item 
+long double \mbox{\hyperlink{class_line_segment_a197e35bdc60dbd946aaa1f25bc397ad3}{intersection\+\_\+of\+\_\+sweep\+\_\+line\+\_\+with\+\_\+linesegment}} ()
+\begin{DoxyCompactList}\small\item\em method to find the intersection of the sweep line with the line segment \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_line_segment_a0dd18ac2c2ed0a1b3d6d4a8fd163d91f}{operator$<$}} (\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&ls)
+\begin{DoxyCompactList}\small\item\em operator overloading for $<$ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_line_segment_a6c46598efb32036488df627af539bc44}{operator$>$}} (\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&ls)
+\begin{DoxyCompactList}\small\item\em operator overloading for $>$ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_line_segment_a1ebef119753e617fa4a7d6a465de5b29}{operator==}} (\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&ls)
+\begin{DoxyCompactList}\small\item\em operator overloading for == \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_line_segment_a3da96880b521c396e2182d43e0ff6060}{operator!=}} (\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&ls)
+\begin{DoxyCompactList}\small\item\em operator overloading for != \end{DoxyCompactList}\item 
+pair$<$ bool, \mbox{\hyperlink{class_point}{Point}} $>$ \mbox{\hyperlink{class_line_segment_a36f97c492fde9223f49c360b27704bd7}{intersection\+\_\+with\+\_\+linesegment}} (\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&ls)
+\begin{DoxyCompactList}\small\item\em method to find intersection points of two line segments \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_line_segment_aadd68e36aedaf8b452b601ec46cf455c}\label{class_line_segment_aadd68e36aedaf8b452b601ec46cf455c}} 
+\mbox{\hyperlink{class_point}{Point}} {\bfseries A}
+\item 
+\mbox{\Hypertarget{class_line_segment_afc72045a93c8dcc409c1dafbd27ed385}\label{class_line_segment_afc72045a93c8dcc409c1dafbd27ed385}} 
+\mbox{\hyperlink{class_point}{Point}} \mbox{\hyperlink{class_line_segment_afc72045a93c8dcc409c1dafbd27ed385}{B}}
+\begin{DoxyCompactList}\small\item\em Starting point of the line segment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_line_segment_ae740fa5ae17bf8e85be6c0e0ab77c7be}\label{class_line_segment_ae740fa5ae17bf8e85be6c0e0ab77c7be}} 
+int \mbox{\hyperlink{class_line_segment_ae740fa5ae17bf8e85be6c0e0ab77c7be}{index}}
+\begin{DoxyCompactList}\small\item\em sweep-\/line status \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_line_segment_afe748418e1a17482d0d86baf85a32d24}\label{class_line_segment_afe748418e1a17482d0d86baf85a32d24}} 
+static long double \mbox{\hyperlink{class_line_segment_afe748418e1a17482d0d86baf85a32d24}{sweep\+\_\+line}} = 1000000000
+\begin{DoxyCompactList}\small\item\em Ending point of the line segment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Line segment class. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_line_segment_a4c2da2ff2d3979f28bfcb24948a8e6a9}\label{class_line_segment_a4c2da2ff2d3979f28bfcb24948a8e6a9}} 
+\index{LineSegment@{LineSegment}!LineSegment@{LineSegment}}
+\index{LineSegment@{LineSegment}!LineSegment@{LineSegment}}
+\doxysubsubsection{\texorpdfstring{LineSegment()}{LineSegment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Line\+Segment\+::\+Line\+Segment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+index of the line segment 
+
+Construct a new Line Segment object \mbox{\Hypertarget{class_line_segment_af421537aff895d53e51d2afdee299d48}\label{class_line_segment_af421537aff895d53e51d2afdee299d48}} 
+\index{LineSegment@{LineSegment}!LineSegment@{LineSegment}}
+\index{LineSegment@{LineSegment}!LineSegment@{LineSegment}}
+\doxysubsubsection{\texorpdfstring{LineSegment()}{LineSegment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Line\+Segment\+::\+Line\+Segment (\begin{DoxyParamCaption}\item[{long double}]{sl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Line Segment object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sl} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_line_segment_afd569e0e9ce6380abc8a7f0b774bc567}\label{class_line_segment_afd569e0e9ce6380abc8a7f0b774bc567}} 
+\index{LineSegment@{LineSegment}!LineSegment@{LineSegment}}
+\index{LineSegment@{LineSegment}!LineSegment@{LineSegment}}
+\doxysubsubsection{\texorpdfstring{LineSegment()}{LineSegment()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Line\+Segment\+::\+Line\+Segment (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&}]{L }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Line Segment object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_line_segment_a6d1ca97316e3da6f4f33a7ca81985a40}\label{class_line_segment_a6d1ca97316e3da6f4f33a7ca81985a40}} 
+\index{LineSegment@{LineSegment}!LineSegment@{LineSegment}}
+\index{LineSegment@{LineSegment}!LineSegment@{LineSegment}}
+\doxysubsubsection{\texorpdfstring{LineSegment()}{LineSegment()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Line\+Segment\+::\+Line\+Segment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_point}{Point}}}]{X,  }\item[{\mbox{\hyperlink{class_point}{Point}}}]{Y,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Line Segment object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em X} & \mbox{\hyperlink{class_point}{Point}} X of the line segment \\
+\hline
+{\em Y} & \mbox{\hyperlink{class_point}{Point}} Y of the line segment \\
+\hline
+{\em index} & index of the line segment \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_line_segment_a197e35bdc60dbd946aaa1f25bc397ad3}\label{class_line_segment_a197e35bdc60dbd946aaa1f25bc397ad3}} 
+\index{LineSegment@{LineSegment}!intersection\_of\_sweep\_line\_with\_linesegment@{intersection\_of\_sweep\_line\_with\_linesegment}}
+\index{intersection\_of\_sweep\_line\_with\_linesegment@{intersection\_of\_sweep\_line\_with\_linesegment}!LineSegment@{LineSegment}}
+\doxysubsubsection{\texorpdfstring{intersection\_of\_sweep\_line\_with\_linesegment()}{intersection\_of\_sweep\_line\_with\_linesegment()}}
+{\footnotesize\ttfamily long double Line\+Segment\+::intersection\+\_\+of\+\_\+sweep\+\_\+line\+\_\+with\+\_\+linesegment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to find the intersection of the sweep line with the line segment 
+
+\begin{DoxyReturn}{Returns}
+long double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_line_segment_a36f97c492fde9223f49c360b27704bd7}\label{class_line_segment_a36f97c492fde9223f49c360b27704bd7}} 
+\index{LineSegment@{LineSegment}!intersection\_with\_linesegment@{intersection\_with\_linesegment}}
+\index{intersection\_with\_linesegment@{intersection\_with\_linesegment}!LineSegment@{LineSegment}}
+\doxysubsubsection{\texorpdfstring{intersection\_with\_linesegment()}{intersection\_with\_linesegment()}}
+{\footnotesize\ttfamily pair$<$ bool , \mbox{\hyperlink{class_point}{Point}} $>$ Line\+Segment\+::intersection\+\_\+with\+\_\+linesegment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&}]{ls }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to find intersection points of two line segments 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ls} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pair $<$ bool , \mbox{\hyperlink{class_point}{Point}} $>$ 
+\end{DoxyReturn}
+x stores slope of line segment of this line segment which calls this method x1 stores slope of line segment of line segment ls y stores the y intercept of this line segment which call this method y1 stores the y intercept of line segment ls z stores the x intercept of this line segment which call this method z1 stores the x intercept of line segment ls
+
+parralel to y axis
+
+parallel to y axis
+
+parallel to y axis
+
+x coordinate of the intersection point
+
+y coordinate of the intersection points
+
+constructing the intersection point
+
+check if the line segments actually intersect without extending\mbox{\Hypertarget{class_line_segment_a3da96880b521c396e2182d43e0ff6060}\label{class_line_segment_a3da96880b521c396e2182d43e0ff6060}} 
+\index{LineSegment@{LineSegment}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!LineSegment@{LineSegment}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Line\+Segment\+::operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&}]{ls }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator overloading for != 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ls} & line segment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if both line segments are not equal 
+
+false if both line segments are equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_line_segment_a0dd18ac2c2ed0a1b3d6d4a8fd163d91f}\label{class_line_segment_a0dd18ac2c2ed0a1b3d6d4a8fd163d91f}} 
+\index{LineSegment@{LineSegment}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!LineSegment@{LineSegment}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Line\+Segment\+::operator$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&}]{ls }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator overloading for $<$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ls} & line segment to be compared with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the given line segment is smaller than the compared segment 
+
+false if the given line segment is greater than the compared segment 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_line_segment_a1ebef119753e617fa4a7d6a465de5b29}\label{class_line_segment_a1ebef119753e617fa4a7d6a465de5b29}} 
+\index{LineSegment@{LineSegment}!operator==@{operator==}}
+\index{operator==@{operator==}!LineSegment@{LineSegment}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Line\+Segment\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&}]{ls }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator overloading for == 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ls} & line segment to be compared with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if both line segments are equal 
+
+false if both line segments are not equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_line_segment_a6c46598efb32036488df627af539bc44}\label{class_line_segment_a6c46598efb32036488df627af539bc44}} 
+\index{LineSegment@{LineSegment}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!LineSegment@{LineSegment}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Line\+Segment\+::operator$>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_line_segment}{Line\+Segment}} \&}]{ls }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator overloading for $>$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ls} & the line segment to be compared with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if line segment is greater than the compared line segment 
+
+false if line segment is smaller than the compared line segment 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Line\+Segment.\+h\item 
+Bentley-\/\+Ottmann.\+h\end{DoxyCompactItemize}
