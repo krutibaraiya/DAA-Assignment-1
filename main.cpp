@@ -2,15 +2,29 @@
 #include "Bentley-Ottmann.h"
 
 using namespace std;
+using namespace std::chrono;
 
+/**
+ * Structure to measure the running time of algorithm
+ */
+struct Timer {
+    string name{""};
+    time_point<high_resolution_clock> end, start{high_resolution_clock::now()};
+    std::chrono::duration<float, std::milli> duration;
+    Timer() = default;
+    Timer(string name) : name(name) {}
+    ~Timer()
+    {
+        end = high_resolution_clock::now();
+        duration = end - start;
+        cout << "@" << name << "> " << duration.count() << " ms" << '\n';
+    }
+};
 
 int32_t main() {
-
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
     
-        freopen("input.txt", "r", stdin);
-        freopen("output.txt", "w", stdout);
-    
-
     int n; // number of line segments
     cin >> n;
     long double x1, x2, y1, y2;
@@ -63,8 +77,9 @@ int32_t main() {
      * @brief calling bentley-ottmann algorithm to find all intersection points
      * 
      */
+    Timer timer("Calling Bentley");
     bo.bentleyOttmann();
-
+    this_thread::sleep_for(chrono::milliseconds(100));
     /**
      * @brief Printing output in a text file
      * 
@@ -73,8 +88,5 @@ int32_t main() {
     for(auto i: finalOutput) {
         i.print();
     }
-    
-    
-
     return 0;
 }

@@ -73,7 +73,6 @@ class BentleyOttmann {
                 break;
             }
         }
-
         return;
     }
 
@@ -135,12 +134,16 @@ class BentleyOttmann {
      * @param sl sweep line
      */
     void getNewEvent(Point p, LineSegment &sl) {
-        
-        sl.A.x = p.x - 0.1;
-        sl.A.y = p.y + 0.1;
-        sl.B.x = p.x + 0.1;
-        sl.B.y = p.y - 0.1;
 
+        auto makeQueryNode = [&sl](Point p) {
+            sl.A.x = p.x - 0.05;
+            sl.A.y = p.y + 0.05;
+            sl.B.x = p.x + 0.05;
+            sl.B.y = p.y - 0.05;
+            return;
+        };
+        
+        makeQueryNode(p);
         LineSegment* leftNeighbour = statusQueue.left_neighbour(sl);
         LineSegment* rightNeighbour = statusQueue.right_neighbour(sl);
 
@@ -237,22 +240,6 @@ class BentleyOttmann {
     }
 
     /**
-     * @brief generating a query node for sweep line to find intersection
-     * 
-     * @param x x coordinate of the event point
-     * @param sl sweep line
-     */
-    void makeQueryNode(long double x, LineSegment &sl) {
-        long double newX = x;
-        newX -= EPS;
-        sl.A.x = newX - 1;
-        sl.B.x = newX + 1;
-        sl.A.y = sl.sweep_line + 1;
-        sl.B.y = sl.sweep_line - 1;
-        return ;
-    }
-
-    /**
      * @brief Get all Line Segments Passing Through This Event Point object
      * 
      * @param x x coordinate of the event point
@@ -260,15 +247,24 @@ class BentleyOttmann {
      */
     void getAllLineSegmentsPassingThroughThisEventPoint(long double x, LineSegment &sl) {
         LineSegment *currentUB;
-        // long double newX = x;
-        // newX -= EPS;
-        // sl.A.x = newX - 1;
-        // sl.B.x = newX + 1;
-        // sl.A.y = sl.sweep_line + 1;
-        // sl.B.y = sl.sweep_line - 1;
-        makeQueryNode(x, sl);
-
-        while(currentUB = statusQueue.upperBound(sl)) {
+        /**
+         * @brief generating a query node for sweep line to find intersection
+        * 
+        * @param x x coordinate of the event point
+        * @param sl sweep line
+        */
+        auto makeQueryNode = [&sl](int x) {
+            long double newX = x;
+            newX -= EPS;
+            sl.A.x = newX - 1;
+            sl.B.x = newX + 1;
+            sl.A.y = sl.sweep_line + 1;
+            sl.B.y = sl.sweep_line - 1;
+            return;
+        };
+        makeQueryNode(x);
+        while (currentUB = statusQueue.upperBound(sl))
+        {
 
             long double xIntersection = currentUB -> intersection_of_sweep_line_with_linesegment();
 
@@ -286,7 +282,6 @@ class BentleyOttmann {
             // for(auto i: concurrentLineSegments) {
             //     cout << i.A.x << " " << i.A.y << " " << i.B.x << " " << i.B.y << endl;
             // }
-
         }
         // cout << "after finding" << endl;
         // statusQueue.display();
@@ -378,13 +373,13 @@ class BentleyOttmann {
                     // cout << "after finding horizontal intersection" << endl;
                     horizontalStatus = true;
                 } else {
-                horizontal = &lineSegments[current.event_index];
+                    horizontal = &lineSegments[current.event_index];
             //     cout << "before deleting" << endl;
             // eventQueue.display();
-                eventQueue.delete_node(current);
+                    eventQueue.delete_node(current);
             //     cout << "after deleting" << endl;
             // eventQueue.display();
-                continue;
+                    continue;
                 }
             } 
             removeDuplicateEventPoints(current);
