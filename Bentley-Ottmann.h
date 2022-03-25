@@ -1,6 +1,6 @@
 #include "Tree.h"
-#define INF 1
-#define EPS 1e-6
+#define INF 1e7
+#define eps 0.000001
 
 long double LineSegment::sweep_line = 1000000000; /// sweep_line status
 
@@ -58,11 +58,11 @@ class BentleyOttmann {
      */
     void findIntersectionsWithHorizontalSegment() {
         LineSegment ls = LineSegment(*horizontal);
-        ls.index = -INF;
+        ls.index = -1;
         LineSegment *intersectionPoint;
         while(intersectionPoint = statusStructure.right_neighbour(ls)) { /// finding the right neighbour in the status tree
             long double xIntersection = intersectionPoint -> intersection_of_sweep_line_with_linesegment();
-            if(xIntersection < horizontal -> B.x - EPS) { /// if the intersection point exists with the horizontal line segment
+            if(xIntersection < horizontal -> B.x - eps) { /// if the intersection point exists with the horizontal line segment
                 concurrentLineSegments.emplace_back(*intersectionPoint);
                 printIntersectionPoint(xIntersection, ls.sweep_line); /// printing the intersection point
                 concurrentLineSegments.clear();
@@ -84,14 +84,14 @@ class BentleyOttmann {
      * @return int 
      */
     int findIntersectionPoint(Point p) {
-        p.x = p.x + EPS;
+        p.x = p.x + eps;
         Event event = Event(p, 4, INF);
-        p.x = p.x - EPS;
+        p.x = p.x - eps;
 
         Event *intersection;
         intersection = eventQueue.left_neighbour(event);
         if(intersection) {
-            if(abs(p.x - intersection -> P.x) < EPS && abs(p.y - intersection -> P.y) < EPS && intersection -> event_type == 4) {
+            if(abs(p.x - intersection -> P.x) < eps && abs(p.y - intersection -> P.y) < eps && intersection -> event_type == 4) {
                 return 1;
             }
         }
@@ -107,19 +107,19 @@ class BentleyOttmann {
         LineSegment ls1 = LineSegment(ls);
         ls1.index = 5;
         LineSegment *leftNeighbour = statusStructure.left_neighbour(ls1);
-        ls1.index = -INF;
+        ls1.index = -1;
         LineSegment *rightNeighbour = statusStructure.right_neighbour(ls1);
 
         pair <bool, Point> intersectionPoint; /// intersection point with the neighbours
         if(leftNeighbour) {
             intersectionPoint = ls.intersection_with_linesegment(*leftNeighbour);
-            if(intersectionPoint.first && intersectionPoint.second.y < ls.sweep_line - EPS && findIntersectionPoint(intersectionPoint.second) == 0) {
+            if(intersectionPoint.first && intersectionPoint.second.y < ls.sweep_line - eps && findIntersectionPoint(intersectionPoint.second) == 0) {
                 eventQueue.insert_node(Event(intersectionPoint.second, 4, INF));
             }
         }
         if(rightNeighbour) {
             intersectionPoint = ls.intersection_with_linesegment(*rightNeighbour);
-            if(intersectionPoint.first && intersectionPoint.second.y < ls.sweep_line - EPS && findIntersectionPoint(intersectionPoint.second) == 0) {
+            if(intersectionPoint.first && intersectionPoint.second.y < ls.sweep_line - eps && findIntersectionPoint(intersectionPoint.second) == 0) {
                 eventQueue.insert_node(Event(intersectionPoint.second, 4, INF));
             }
         }
@@ -136,7 +136,7 @@ class BentleyOttmann {
     void getNewEvent(LineSegment &sl, Point p) {
 
         auto makeQueryNode = [&sl] (Point p) {
-            sl.A.x = p.x -0.1;
+            sl.A.x = p.x - 0.1;
             sl.A.y = p.y + 0.1;
             sl.B.x = p.x + 0.1;
             sl.B.y = p.y - 0.1;
@@ -152,7 +152,7 @@ class BentleyOttmann {
 
         if(leftNeighbour != NULL && rightNeighbour != NULL) { // if left and right neighbour exists
             intersectionPoint = leftNeighbour -> intersection_with_linesegment(*rightNeighbour);
-            if(intersectionPoint.first && intersectionPoint.second.y < sl.sweep_line - EPS && findIntersectionPoint(intersectionPoint.second) == 0) {
+            if(intersectionPoint.first && intersectionPoint.second.y < sl.sweep_line - eps && findIntersectionPoint(intersectionPoint.second) == 0) {
                 eventQueue.insert_node(Event(intersectionPoint.second, 4, INF)); 
             }
         }
@@ -167,6 +167,10 @@ class BentleyOttmann {
     void printIntersectionPoint(long double x, long double y) {
         // cout << "in intersection " << x << " " << y << endl;
         Point p(x,y);
+        // freopen("./Test/output_intersection.txt", "w", stdout);
+        //cout << x << " " << y << endl;
+        // fclose(stdout);
+        // freopen("./Test/output_test.txt", "w", stdout);
         ans++;
         cout << fixed << setprecision(6);
         cout << "------------------------------------------------------------" << endl;
@@ -222,15 +226,15 @@ class BentleyOttmann {
      * @param event event whose duplicates are to be removed
      */
     void removeDuplicateEventPoints(Event event) {
-        event.event_index = -INF;
-        event.event_type = -INF;
+        event.event_index = -1;
+        event.event_type = -1;
         Event *currentUB; /// current upper bound of event
         while ((currentUB = eventQueue.upperBound(event)) != NULL) {
             //cout << "event " << event.P.x << " " << event.P.y << endl;
             //cout << "current upper bound " << currentUB -> P.x << " " << currentUB -> P.y << endl;
-            if(abs(currentUB -> P.x - event.P.x) > EPS ) {
+            if(abs(currentUB -> P.x - event.P.x) > eps ) {
                 return;
-            } else if (abs(currentUB -> P.y - event.P.y) > EPS) {
+            } else if (abs(currentUB -> P.y - event.P.y) > eps) {
                 return;
             } else {
                 if(currentUB -> event_type == 0) {
@@ -268,7 +272,7 @@ class BentleyOttmann {
         */
         auto makeQueryNode = [&sl] (int x) {
             long double newX = x;
-            newX -= EPS;
+            newX -= eps;
             sl.A.x = newX - 1;
             sl.B.x = newX + 1;
             sl.A.y = sl.sweep_line + 1;
@@ -278,7 +282,7 @@ class BentleyOttmann {
         makeQueryNode(x);
         while ((currentUB = statusStructure.upperBound(sl)) != NULL) {
             long double xIntersection = currentUB -> intersection_of_sweep_line_with_linesegment();
-            if(abs(x - xIntersection) > EPS) {
+            if(abs(x - xIntersection) > eps) {
                 return;
             }
             LineSegment ls = LineSegment(*currentUB);
@@ -316,7 +320,7 @@ class BentleyOttmann {
 
         bool ifLowerExist = true;
         for(auto &ls: concurrentLineSegments) {
-            if(abs(ls.B.y - ls.sweep_line) < EPS) {
+            if(abs(ls.B.y - ls.sweep_line) < eps) {
                 
             } else {
                 reinsertLS.emplace_back(ls);
@@ -335,16 +339,16 @@ class BentleyOttmann {
      * 
      */
     void bentleyOttmann() {
-        cout << fixed << setprecision(10);
+        cout << fixed << setprecision(6);
         // cout << "calling bentley" << endl;
         // for(auto i: lineSegments) {
         //     cout << i.A.x << " " << i.A.y << " " << i.B.x << " " << i.B.y << endl;
         // }
-        LineSegment sl = LineSegment(1e10);
+        LineSegment sl = LineSegment(1000000000);
         int idx = 0;
         for (auto &ls : lineSegments) {
             LineSegment current(ls);
-            if (abs(current.A.y - current.B.y) < EPS) { /// if line segment is horizontal
+            if (abs(current.A.y - current.B.y) < eps) { /// if line segment is horizontal
                 Event e1(current.A, 0, idx);
                 Event e2(current.B, 1, idx);
                 eventQueue.insert_node(e1);
@@ -362,8 +366,8 @@ class BentleyOttmann {
         while(!isEmpty(eventQueue)) {
             Event current = *eventQueue.extract_min();
             //cout << "current.Point " << current.P.x << " " << current.P.y << endl;
-            if(abs(current.P.y - sl.sweep_line) > EPS) {
-                sl.sweep_line  = sl.sweep_line - EPS;
+            if(abs(current.P.y - sl.sweep_line) > eps) {
+                sl.sweep_line  = sl.sweep_line - eps;
                 // cout << sl.sweep_line << endl;
                 reinsertLineSegments();
                 insertNewEvents(sl);

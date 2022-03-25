@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #include "Bentley-Ottmann.h"
-
+#define eps 0.000001
 using namespace std;
 using namespace std::chrono;
 
@@ -34,7 +34,6 @@ int32_t main() {
 
     for(int i = 0; i < n; i++) {
         cin >> x1 >> y1 >> x2 >> y2;
-
         /**
          * @brief constructing Point from coordinates 
          * 
@@ -46,7 +45,7 @@ int32_t main() {
          * @brief Assigning Point A as the starting point of line segment and Point B as the ending point of the line segment
          * 
          */
-        if(abs(A.y - B.y) > EPS) {
+        if(abs(A.y - B.y) > eps) {
             if(A.y < B.y) {
                 swap(A,B);
             } 
