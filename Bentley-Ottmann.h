@@ -167,10 +167,10 @@ class BentleyOttmann {
     void printIntersectionPoint(long double x, long double y) {
         // cout << "in intersection " << x << " " << y << endl;
         Point p(x,y);
-        // freopen("./Test/output_intersection.txt", "w", stdout);
+        //freopen("./Test/output_intersection.txt", "w", stdout);
         //cout << x << " " << y << endl;
-        // fclose(stdout);
-        // freopen("./Test/output_test.txt", "w", stdout);
+
+        //freopen("./Test/output_test.txt", "w", stdout);
         ans++;
         cout << fixed << setprecision(6);
         cout << "------------------------------------------------------------" << endl;
@@ -180,6 +180,7 @@ class BentleyOttmann {
             cout << "Point A: (" << l.A.x << ", " << l.A.y << ") Point B: (" << l.B.x << ", " << l.B.y << ") " << endl;  
         }
         cout << "-----------------------------------------------------------" << endl;
+
         // vector <LineSegment> ls;
         // for(auto &i: concurrentLineSegments) {
         //     ls.emplace_back(i);

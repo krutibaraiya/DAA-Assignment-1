@@ -28,6 +28,8 @@ int32_t main() {
     
     int n; // number of line segments
     cin >> n;
+    // fclose(stdin);
+    // freopen("./Test/input_test.txt", "r", stdin);
     long double x1, x2, y1, y2;
 
     vector <LineSegment> lineSegments; // vector to store all line segments

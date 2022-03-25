@@ -7,9 +7,10 @@ int32_t main() {
     // cin.tie(0);
     freopen("input_test.txt", "w", stdout);
     srand(static_cast<unsigned>(time(0)));
-    int n = 10;
+    int n = 100;
     cout << n << "\n";
-    
+    // fclose(stdout);
+    // freopen("input_test.txt", "w", stdout);
     const long double LO = -1e6;
     const long double HI = 1e6;
     long double cur = LO + static_cast<long double>(rand()) / (static_cast<float>(RAND_MAX / (HI - LO)));

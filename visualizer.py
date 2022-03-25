@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-lineSegments = np.loadtxt("input_test.txt")
-intersectionPoints = np.loadtxt("output_test.txt")
+lineSegments = np.loadtxt("./Test/visualizer_input.txt")
+intersectionPoints = np.loadtxt("./Test/visualizer_output.txt")
 plt.grid()
 for ls in lineSegments:
     pointA = [ls[0], ls[1]]

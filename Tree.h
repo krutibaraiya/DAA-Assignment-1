@@ -406,34 +406,4 @@ class Tree
 		}
 		return 0;
 	}
-	void display(Node<T> *cur,int depth = 0,int state = 0)
-	{
-		if (cur->left)
-		    display(cur->left, depth + 1, 1);
-		
-		    for (int i=0; i < depth; i++) {
-				printf("     ");
-			}
-			
-		    if (state == 1) // left
-		        printf("┌───");
-		    else if (state == 2)  // right
-		        printf("└───");
-		    cout << "[" << cur->data.A.x << " " << cur->data.A.y << " " << cur->data.B.x << " " << cur->data.B.y << "] - (" << cur->cnt << ", "  << cur -> height << ")" << endl;
-			// cout << "[" << cur->data.P.x << " " << cur->data.P.y << "] - (" << cur->cnt << ", "  << cur -> height << ")" << endl;
-
-		if (cur->right)
-			display(cur->right, depth + 1, 2);
-	}
-	void display()
-	{
-		cout << endl;
-		if(root != NULL)
-			display(root);
-		else
-			cout << "Empty" << endl;
-	} 
-	
-
-
 };
