@@ -24,7 +24,7 @@ class Output {
      * @param p intersection point
      * @param ls line segment containing the point
      */
-    Output(Point p, vector <LineSegment> ls) {
+    Output(Point p, vector <LineSegment> &ls) {
         this -> p = p;
         this -> ls = ls;
     }

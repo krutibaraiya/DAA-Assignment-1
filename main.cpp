@@ -22,6 +22,7 @@ struct Timer {
 };
 
 int32_t main() {
+    ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
     freopen("./Test/input_test.txt", "r", stdin);
     freopen("./Test/output_test.txt", "w", stdout);
     
@@ -63,7 +64,7 @@ int32_t main() {
          * @brief Adding the constructed line segment into the vector
          * 
          */
-        lineSegments.push_back(ls);
+        lineSegments.emplace_back(ls);
     } 
 
     /**
@@ -85,8 +86,9 @@ int32_t main() {
      * 
      */
     vector <Output> finalOutput = bo.output;
-    for(auto i: finalOutput) {
-        i.print();
-    }
+    cout << bo.ans << endl;
+    // for(auto i: finalOutput) {
+    //     i.print();
+    // }
     return 0;
 }
