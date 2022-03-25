@@ -22,8 +22,8 @@ struct Timer {
 };
 
 int32_t main() {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    freopen("./Test/input_test.txt", "r", stdin);
+    freopen("./Test/output_test.txt", "w", stdout);
     
     int n; // number of line segments
     cin >> n;
