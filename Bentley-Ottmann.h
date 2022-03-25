@@ -270,16 +270,22 @@ class BentleyOttmann {
         * @param x x coordinate of the event point
         * @param sl sweep line
         */
-        auto makeQueryNode = [&sl] (int x) {
-            long double newX = x;
+        // auto makeQueryNode = [&sl] (int x) {
+        //     long double newX = x;
+        //     newX -= eps;
+        //     sl.A.x = newX - 1;
+        //     sl.B.x = newX + 1;
+        //     sl.A.y = sl.sweep_line + 1;
+        //     sl.B.y = sl.sweep_line - 1;
+        //     return;
+        // };
+        // makeQueryNode(x);
+        long double newX = x;
             newX -= eps;
             sl.A.x = newX - 1;
             sl.B.x = newX + 1;
             sl.A.y = sl.sweep_line + 1;
             sl.B.y = sl.sweep_line - 1;
-            return;
-        };
-        makeQueryNode(x);
         while ((currentUB = statusStructure.upperBound(sl)) != NULL) {
             long double xIntersection = currentUB -> intersection_of_sweep_line_with_linesegment();
             if(abs(x - xIntersection) > eps) {
@@ -352,16 +358,19 @@ class BentleyOttmann {
                 Event e1(current.A, 0, idx);
                 Event e2(current.B, 1, idx);
                 eventQueue.insert_node(e1);
+                
                 eventQueue.insert_node(e2);
+                
             } else { /// otherwise
                 Event e1(current.A, 2, idx);
                 Event e2(current.B, 3, idx);
                 eventQueue.insert_node(e1);
                 eventQueue.insert_node(e2);
+                
             }
             ++idx;
         }
-        // eventQueue.display();
+        //eventQueue.display();
         // cout << "Event queue over" << endl;
         while(!isEmpty(eventQueue)) {
             Event current = *eventQueue.extract_min();

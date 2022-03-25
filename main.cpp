@@ -22,7 +22,7 @@ struct Timer {
 };
 
 int32_t main() {
-    ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    //ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
     freopen("./Test/input_test.txt", "r", stdin);
     freopen("./Test/output_test.txt", "w", stdout);
     
