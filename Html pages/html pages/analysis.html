@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bentley Ottmann</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css" >
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Bentley Ottmann</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="algorithm.html">Algorithm</a>
+      <a class="nav-item nav-link" href="tests.html">Tests</a>
+      <a class="nav-item nav-link" href="analysis.html">Analysis</a>
+      <!-- <a class="nav-item nav-link" href="challenges.html">Challenges</a> -->
+      <a class="nav-item nav-link" href="desc.html">Description</a>
+
+    </div>
+  </div>
+</nav>
+    <div class="outer">
+
+    <h3 style="text-align: center">Bentley-Ottmann</h3>
+    <br>
+
+    <div class="intro" style="text-align: center">
+        <h4 style="text-align: center"> Timing Analysis</h4>
+    </div>
+    <br>
+
+    <table class="table table-sm table-striped">
+        <thead class = "thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">No. of Line Segments (n)</th>
+            <th scope="col">No. of Intersection Points (k)</th>
+            <th scope="col">Time taken</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>5</td>
+                <td>2</td>
+                <td>100.752975 ms</td>
+              </tr>
+          <tr>
+                <th scope="row">2</th>
+                <td>10</td>
+                <td>14</td>
+                <td>111.188377 ms</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>20</td>
+            <td>57</td>
+            <td>132.513565 ms</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>50</td>
+            <td>293</td>
+            <td>181.155731 ms</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>100</td>
+            <td>1282</td>
+            <td>351.699585 ms</td>
+          </tr>
+
+          <tr>
+            <th scope="row">6</th>
+            <td>200</td>
+            <td>4350</td>
+            <td>172.802139 ms</td>
+          </tr>
+        <tr>
+            <th scope="row">7</th>
+            <td>500</td>
+            <td>29766</td>
+            <td>6444.136719 ms</td>
+        </tr> 
+        <tr>
+            <th scope="row">8</th>
+            <td>1000</td>
+            <td>112637</td>
+            <td>25475.980469 ms</td>
+        </tr>
+        <tr>
+            <th scope="row">9</th>
+            <td>5000</td>
+            <td>2858463</td>
+            <td>116807.132812 ms</td>
+        </tr>
+        <tr>
+            <th scope="row">10</th>
+            <td>10000</td>
+            <td>11692533</td>
+            <td>266866.218750 ms</td>
+        </tr>
+
+        </tbody>
+      </table>
+
+      <br><br>
+      <p style="text-align: center;">Keeping n constant and varying k</p>
+      
+      <table class="table table-sm table-striped">
+        <thead class = "thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">No. of Line Segments (n)</th>
+            <th scope="col">No. of Intersection Points (k)</th>
+            <th scope="col">Time taken</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>100</td>
+                <td>1025</td>
+                <td>487.233948 ms</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>100</td>
+                <td>1055</td>
+                <td>327.456177 ms</td>
+            </tr> 
+          <tr>
+                <th scope="row">3</th>
+                <td>100</td>
+                <td>1062</td>
+                <td>330.095520 ms</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>100</td>
+            <td>1079</td>
+            <td>329.496765 ms</td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td>100</td>
+            <td>1092</td>
+            <td>322.313660 ms</td>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td>100</td>
+            <td>1125</td>
+            <td>343.617035 ms</td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>100</td>
+            <td>1134</td>
+            <td>327.956970 ms</td>
+        </tr> 
+        <tr>
+            <th scope="row">8</th>
+            <td>100</td>
+            <td>1211</td>
+            <td>349.793732 ms</td>
+        </tr>
+        <tr>
+            <th scope="row">9</th>
+            <td>100</td>
+            <td>1241</td>
+            <td>350.154266 ms</td>
+        </tr> 
+          <tr>
+            <th scope="row">10</th>
+            <td>100</td>
+            <td>1483</td>
+            <td>390.891937 ms</td>
+          </tr>
+          
+          
+       
+       
+        
+        
+        
+        
+        </tbody>
+      </table>
+
+    
+
+    
+</div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
