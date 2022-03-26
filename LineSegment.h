@@ -59,6 +59,12 @@ class LineSegment
         this->index = index;
     }
 
+    bool checkSameY() {
+        return abs(A.x - B.x) < EPS;
+    }
+    bool checkSameX() {
+        return abs(A.y - B.y) < EPS;
+    }
     /**
      * @brief method to find the intersection of the sweep line with the line segment
      * 
@@ -66,15 +72,18 @@ class LineSegment
      */
     long double intersection_of_sweep_line_with_linesegment()
     {   
-        if(abs(A.x - B.x) < EPS)  //vertical 
+        // if(abs(A.x - B.x) < EPS)  //vertical 
+        //     return A.x;
+        if(checkSameY() || checkSameX()) {
             return A.x;
-
-        if(abs(A.y - B.y) < EPS)   //horizontal
-            return A.x;
-        
-        long double slope = (B.y - A.y)/(B.x - A.x);
-
-        long double intersection = (sweep_line - (A.y - slope * A.x))/slope; 
+        }
+        // if(abs(A.y - B.y) < EPS)   //horizontal
+        //     return A.x;
+        long double numo = (A.y - B.y);
+        long double deno = (A.x - B.x);
+        long double slope = numo /deno;
+        long double c = (A.y - slope * A.x);
+        long double intersection = (sweep_line - c)/slope; 
         // cout << A.x << " " << B.x << " " << sweep_line << endl;
         return intersection;
     }
@@ -152,17 +161,22 @@ class LineSegment
         if(abs(A.x - B.x) < EPS) {  /// parralel to y axis
             x = 1, y = 0, z = -A.x;
         } else {
-            x = (A.y - B.y) / (B.x - A.x);
             y = 1.0;
-            z = -(x * A.x + A.y);
+            long double numo = (A.y - B.y);
+            long double deno = (A.x - B.x);
+            x = -numo / deno;
+            z = (-x) * A.x - A.y;
         }
 
         if(abs(ls.A.x - ls.B.x) < EPS) { /// parallel to y axis
             x1 = 1, y1 = 0, z1 = -ls.A.x;
         } else {
-            x1 = (ls.A.y - ls.B.y) / (ls.B.x - ls.A.x);
             y1 = 1.0;
-            z1 = -(x1 * ls.A.x + ls.A.y); 
+            long double numo = (ls.A.y - ls.B.y);
+            long double deno = (ls.A.x - ls.B.x);
+            x1 = -numo / deno;
+            
+            z1 = (-x1) * ls.A.x - ls.A.y; 
         }
 
         if(abs(x - x1) < EPS && abs(y - y1) < EPS) { /// parallel to y axis
@@ -184,8 +198,12 @@ class LineSegment
              * @brief check if the line segments actually intersect without extending
              * 
              */
-            if(intersection.check_if_a_point_lies_between_two_points(A,B) && intersection.check_if_a_point_lies_between_two_points(ls.A, ls.B)) {
-                return make_pair(1, intersection);
+            if(intersection.check_if_a_point_lies_between_two_points(A,B)) {
+                if(intersection.check_if_a_point_lies_between_two_points(ls.A, ls.B)) {
+                    return make_pair(1, intersection);
+                } else {
+                    return make_pair(0, Point());
+                }   
             } else {
                 return make_pair(0, Point());
             }

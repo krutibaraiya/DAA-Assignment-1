@@ -57,18 +57,13 @@ class Event
 	 */
     bool operator > (const Event& E) const	
 	{
-		if(P.y != E.P.y)
-			return P.y < E.P.y;
-		else {
-			if(P.x != E.P.x)
-				return P.x > E.P.x;
-			else {
-				if(event_type != E.event_type)
-					return event_type > E.event_type;
-				else
-					return event_index > E.event_index;
-			}
-		}
+		return ({
+			(P.y != E.P.y) ? (P.y < E.P.y) : ({
+				(P.x != E.P.x) ? (P.x > E.P.x) : ({
+					(event_type != E.event_type) ? (event_type > E.event_type) : (event_index > E.event_index);
+				});
+			});
+		});
 			
 	}
 
@@ -82,18 +77,13 @@ class Event
 	 */
     bool operator < (const Event& E) const	
 	{
-		if(P.y != E.P.y)
-			return P.y > E.P.y;
-		else {
-			if(P.x != E.P.x)
-				return P.x < E.P.x;
-			else {
-				if(event_type != E.event_type)
-					return event_type < E.event_type;
-				else
-					return event_index < E.event_index;
-			}
-		}
+		return ({
+			(P.y != E.P.y) ? (P.y > E.P.y) : ({
+				(P.x != E.P.x) ? (P.x < E.P.x) : ({
+					(event_type != E.event_type) ? (event_type < E.event_type) : (event_index < E.event_index);
+				});
+			});
+		});
 			
 
 	}

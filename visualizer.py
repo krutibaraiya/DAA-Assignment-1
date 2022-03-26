@@ -15,4 +15,18 @@ for ip in intersectionPoints:
     x = ip[0]
     y = ip[1]
     plt.plot(x, y, 'ro')
+# plt.grid()
+# points = np.loadtxt("./Test/visualizer_output.txt")
+# i = 0
+# for point in points:
+#     if i == 0:
+#         i = 1
+#         continue
+#     x = [points[i-1][0], points[i-1][1]]
+#     y = [point[0], point[1]]
+#     X = [x[0], y[0]]
+#     Y = [x[1], y[1]]
+#     print(X, Y)
+#     plt.plot(X, Y, 'bo', linestyle = '-')
+#     i = i+1
 plt.show()

@@ -55,9 +55,15 @@ class Point
      * @return false If point does not exist between two points
      */
     bool check_if_a_point_lies_between_two_points(Point &A, Point &B)
-    {
-        bool check_X = x < max(A.x, B.x) + EPS && x + EPS > min(A.x, B.x);
-        bool check_Y = y < max(A.y, B.y) + EPS && y + EPS > min(A.y, B.y);
+    {   
+        bool checkX1 = x < max(A.x, B.x) + EPS;
+        bool checkX2 = x + EPS > min(A.x, B.x);
+        bool checkY1 = y < max(A.y, B.y) + EPS;
+        bool checkY2 = y + EPS > min(A.y, B.y);
+        // bool check_X = x < max(A.x, B.x) + EPS && x + EPS > min(A.x, B.x);
+        // bool check_Y = y < max(A.y, B.y) + EPS && y + EPS > min(A.y, B.y);
+        bool check_X = checkX1 && checkX2;
+        bool check_Y = checkY1 && checkY2;
         bool check_point = check_X && check_Y;
         return check_point;
 
