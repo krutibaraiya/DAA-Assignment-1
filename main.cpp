@@ -22,14 +22,11 @@ struct Timer {
 };
 
 int32_t main() {
-    //ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
     freopen("./Test/input_test.txt", "r", stdin);
     freopen("./Test/output_test.txt", "w", stdout);
     
     int n; // number of line segments
     cin >> n;
-    // fclose(stdin);
-    // freopen("./Test/input_test.txt", "r", stdin);
     long double x1, x2, y1, y2;
 
     vector <LineSegment> lineSegments; // vector to store all line segments

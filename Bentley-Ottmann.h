@@ -10,7 +10,7 @@ long double LineSegment::sweep_line = 1000000000; /// sweep_line status
  */
 class BentleyOttmann {
     public:
-    int ans = 0;
+    long long int ans = 0;
     vector <LineSegment> lineSegments, reinsertLS, concurrentLineSegments; /// vectors of line segment
     vector <Point> neighbours; /// vector to store points whose neighbours are to be checked for new events
     LineSegment* horizontal; /// pointer to the horizontal line segment
@@ -167,32 +167,17 @@ class BentleyOttmann {
     void printIntersectionPoint(long double x, long double y) {
         // cout << "in intersection " << x << " " << y << endl;
         Point p(x,y);
-        //freopen("./Test/output_intersection.txt", "w", stdout);
-        //cout << x << " " << y << endl;
+        cout << x << " " << y << endl;
 
-        //freopen("./Test/output_test.txt", "w", stdout);
         ans++;
-        cout << fixed << setprecision(6);
-        cout << "------------------------------------------------------------" << endl;
-        cout <<  "Intersection Point: (" << p.x << ", " << p.y << ") " << endl;
-        for(auto &l: concurrentLineSegments) {
-            cout << "Index of line segment " << l.index + 1 << " " << endl;
-            cout << "Point A: (" << l.A.x << ", " << l.A.y << ") Point B: (" << l.B.x << ", " << l.B.y << ") " << endl;  
-        }
-        cout << "-----------------------------------------------------------" << endl;
-
-        // vector <LineSegment> ls;
-        // for(auto &i: concurrentLineSegments) {
-        //     ls.emplace_back(i);
+        // cout << fixed << setprecision(6);
+        // cout << "------------------------------------------------------------" << endl;
+        // cout <<  "Intersection Point: (" << p.x << ", " << p.y << ") " << endl;
+        // for(auto &l: concurrentLineSegments) {
+        //     cout << "Index of line segment " << l.index + 1 << " " << endl;
+        //     cout << "Point A: (" << l.A.x << ", " << l.A.y << ") Point B: (" << l.B.x << ", " << l.B.y << ") " << endl;  
         // }
-        // if(horizontal) {
-        //     ls.emplace_back(*horizontal);
-        // }
-        // if(secondHorizontal) {
-        //     ls.emplace_back(*secondHorizontal);
-        // }
-        // Output out(p, ls);
-        // output.emplace_back(out);
+        // cout << "-----------------------------------------------------------" << endl;
         return;
     }
 
@@ -242,13 +227,10 @@ class BentleyOttmann {
                     secondHorizontal = &lineSegments[currentUB -> event_index];
                 } else if(currentUB -> event_type == 2) {
                     statusStructure.insert_node(lineSegments[currentUB -> event_index]);
-                    // cout << "after removing" << endl;
                     // statusStructure.display();
                 }
-                // cout << "before removing" << endl;
                 //     eventQueue.display();
                 eventQueue.delete_node(*currentUB);
-                // cout << "after removing" << endl;
                 //     eventQueue.display();
             }
         }
@@ -271,16 +253,6 @@ class BentleyOttmann {
         * @param x x coordinate of the event point
         * @param sl sweep line
         */
-        // auto makeQueryNode = [&sl] (int x) {
-        //     long double newX = x;
-        //     newX -= eps;
-        //     sl.A.x = newX - 1;
-        //     sl.B.x = newX + 1;
-        //     sl.A.y = sl.sweep_line + 1;
-        //     sl.B.y = sl.sweep_line - 1;
-        //     return;
-        // };
-        // makeQueryNode(x);
         long double newX = x;
             newX -= eps;
             sl.A.x = newX - 1;
@@ -293,17 +265,14 @@ class BentleyOttmann {
                 return;
             }
             LineSegment ls = LineSegment(*currentUB);
-            // cout << "before deleting" << endl;
             // statusStructure.display();
             statusStructure.deleteUpperBound(sl);
-            // cout << "after deleting" << endl;
             // statusStructure.display();
             concurrentLineSegments.emplace_back(ls);
             // for(auto i: concurrentLineSegments) {
             //     cout << i.A.x << " " << i.A.y << " " << i.B.x << " " << i.B.y << endl;
             // }
         }
-        // cout << "after finding" << endl;
         // statusStructure.display();
         return;
     }
@@ -347,7 +316,6 @@ class BentleyOttmann {
      */
     void bentleyOttmann() {
         cout << fixed << setprecision(6);
-        // cout << "calling bentley" << endl;
         // for(auto i: lineSegments) {
         //     cout << i.A.x << " " << i.A.y << " " << i.B.x << " " << i.B.y << endl;
         // }
@@ -359,7 +327,6 @@ class BentleyOttmann {
                 Event e1(current.A, 0, idx);
                 Event e2(current.B, 1, idx);
                 eventQueue.insert_node(e1);
-                
                 eventQueue.insert_node(e2);
                 
             } else { /// otherwise
@@ -372,43 +339,33 @@ class BentleyOttmann {
             ++idx;
         }
         //eventQueue.display();
-        // cout << "Event queue over" << endl;
         while(!isEmpty(eventQueue)) {
             Event current = *eventQueue.extract_min();
             //cout << "current.Point " << current.P.x << " " << current.P.y << endl;
             if(abs(current.P.y - sl.sweep_line) > eps) {
                 sl.sweep_line  = sl.sweep_line - eps;
-                // cout << sl.sweep_line << endl;
                 reinsertLineSegments();
                 insertNewEvents(sl);
             }
             current = *eventQueue.extract_min();
             current = Event(current);
             sl.sweep_line = current.P.y;
-            // cout << sl.sweep_line << endl;
             bool horizontalStatus = false;
             if(current.event_type == 0 || current.event_type == 1) {
                 if(horizontal) {
-                    // cout << "before finding horizontal intersection" << endl;
                     findIntersectionsWithHorizontalSegment();
-                    // cout << "after finding horizontal intersection" << endl;
                     horizontalStatus = true;
                 } else {
                     horizontal = &lineSegments[current.event_index];
-            //     cout << "before deleting" << endl;
             // eventQueue.display();
                     eventQueue.delete_node(current);
-            //     cout << "after deleting" << endl;
             // eventQueue.display();
                     continue;
                 }
             } 
             removeDuplicateEventPoints(current);
-            // cout << sl.sweep_line << endl;
             getAllLineSegmentsPassingThroughThisEventPoint(current.P.x, sl);
-            // cout << sl.sweep_line << endl;
             processAllSegmentsAtThisEventPoint(current.P.x, sl.sweep_line);
-            // cout << sl.sweep_line << endl;
             auto check = [&]() {
                 horizontal = NULL;
                 if (secondHorizontal) {
@@ -417,7 +374,8 @@ class BentleyOttmann {
                 secondHorizontal = NULL;
                 return ;
             };
-            check();
+            if(horizontalStatus)
+                check();
         }
         return;
     }

@@ -33,7 +33,6 @@ class Event
         event_type = -1;
         event_index = 0;
     }
-
 	/**
 	 * @brief Construct a new Event object
 	 * 
@@ -47,7 +46,6 @@ class Event
         this -> event_type = event_type;
         this -> event_index = event_index;
     }
-
 	/**
 	 * @brief operator overloading for >
 	 * 
@@ -66,7 +64,6 @@ class Event
 		});
 			
 	}
-
 	
 	/**
 	 * @brief 	
@@ -85,7 +82,6 @@ class Event
 			});
 		});
 			
-
 	}
 		
 	/**
@@ -111,7 +107,4 @@ class Event
 	{
 		return !((P == E.P && event_index == E.event_index && event_type == E.event_type));
 	}
-
-    
-
 };
